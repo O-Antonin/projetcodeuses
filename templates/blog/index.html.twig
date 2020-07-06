@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Blog des Recettes!{% endblock %}
+{% block title %} Blog Cuisine Internationales| Recettes {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<h2 class="display-4 text-center my-4 animate__animated animate__backInDown" style="animate-delay: 1.2s;"> Liste des Recettes </h2>
+    
+    <div class="row d-flex justify-content-around ">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/Symfony/projetcodeuses/src/Controller/BlogController.php'|file_link(0) }}">src/Controller/BlogController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/Symfony/projetcodeuses/templates/blog/index.html.twig'|file_link(0) }}">templates/blog/index.html.twig</a></code></li>
-    </ul>
-</div>
+        {% for data in recettes %}
+
+            <div class="card mb-3 text-center border border-dark rounded-lg animate__animated animate__zoomIn" style="width: 18rem;">
+                <img src="{{ data.image }}" class="card-img-top" alt="{{ data.title }}">
+                <div class="card-body">
+                    <h3 class="card-title"> {{ data.title }} </h3> <!-- to dynamically change the title name for each cards -->
+                    
+                    <p class="card-text"> {{ data.content|slice(0, 100)|raw }}... </p> <!-- 'raw' or 'striptags'to remove the <p> tags from the sides on the contents-->
+                    <hr>
+                    <p> Posté le {{ data.createdAt|date("d/m/Y") }} à {{ data.createdAt|date("H:i:s") }} </p>
+                    <a href="{{ path('blog_show', {'id':data.id}) }}" class="btn btn-dark">Voir le détail</a>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
 {% endblock %}
