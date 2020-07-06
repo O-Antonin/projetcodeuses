@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<h2 class="display-4 my-4 text-center animate__animated animate__backInDown" > Détails de la recette {{ recette.title }} </h2>
+
+    <div class="col-md-12 card mb-2 text-center p-0">
+        <img src="{{ recette.image|replace({"200": "1000/300"}) }}" class="card-img-top" alt="{{ recette.title }}">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{ recette.title }}</h5>
+            <p class="card-text text-center">{{ recette.content|raw }}</p>   
+            <hr>
+
+            {% if app.user %} {#If the user is connected 'Modifier l'recette will be displayed' #}
+                            
+            <span class="col-md-2"><a href="{{ path('blog_edit', {'id':recette.id}) }}"  class="text-left btn btn-warning">Modifier</a></span>
+
+            {% endif %}
+
+            <span class="col offset-md-4 font-italic text-right"> Posté le {{ recette.createdAt|date("d/m/Y") }} à {{ recette.createdAt|date("H:i:s") }} dans la Catégorie <strong style ='color:darkgreen'> {{ recette.category.title }} </strong> </span>       
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+
+        <h2 class="text-center mt-5"> Derniers avis... </h2>
+
+        {% for comment in recette.comments %}
+
+            <div class="row border rounded mb-3 bg-dark text-white">
+                <div class="col-md-4">
+                    <span> {{ comment.author }} </span>
+                    <span class="font-italic">( {{ comment.createdAt|date('d/m/y à H:i:s') }} ) </span>
+                </div>
+                <div class="col-md-8">
+                    <p>{{ comment.content|raw }} </p>
+
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
