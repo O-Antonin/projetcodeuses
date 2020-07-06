@@ -2,18 +2,26 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Recette;
+use App\Repository\RecetteRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BlogController extends AbstractController
 {
     /**
      * @Route("/blog", name="blog")
      */
-    public function index()
+    public function index(RecetteRepository $repo)
     {
+
+        $repo = $this->getDoctrine()->getRepository(Recette::class);
+
+        $recettes = $repo->findAll();
+
         return $this->render('blog/index.html.twig', [
             'controller_name' => 'BlogController',
+            'recettes' => $recettes
         ]);
     }
 
@@ -27,6 +35,22 @@ class BlogController extends AbstractController
             
         ]);
     }
+
+    /**
+     * @Route("/blog/{id}", name="blog_show")
+     */
+
+     public function show($id)
+     {
+         $repo = $this->getDoctrine()->getRepository(Recette::class);
+         
+         $recette = $repo->find($id);
+
+         return $this->render('blog/show.html.twig', [
+            'recette' => $recette
+
+        ]);
+     }
     
 }
 

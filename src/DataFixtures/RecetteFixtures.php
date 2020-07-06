@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+
 use Faker\Factory;
 use App\Entity\Recette;
 use Doctrine\Persistence\ObjectManager;
@@ -11,7 +12,6 @@ class RecetteFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-
 
         $faker = \Faker\Factory::create('fr_FR');
 
@@ -32,7 +32,7 @@ class RecetteFixtures extends Fixture
                 $manager->persist($recette);
 
             }    
-
+      
         $manager->flush();
     }
 }
