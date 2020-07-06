@@ -16,32 +16,50 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
-            <a class="navbar-brand" href="#">Blog des Recettes</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
 
-            <div class="collapse navbar-collapse" id="navbarsExample04">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="">Home</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="">Recettes</a>
-                    </li>
-                </ul>
-             </div>
-        </nav>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">A propos</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Recettes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Italienne</a>
+          <a class="dropdown-item" href="#">Chinoise</a>
+          <a class="dropdown-item" href="#">Antillaise</a>
+          <a class="dropdown-item" href="#">Orientale</a>
+          <a class="dropdown-item" href="#">Indienne</a>
+        
 
-        <section class="container my-container">  
+      </li>
+    
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Creer votre compte</button>
+      
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Identiez-vous</button>
+    </form>
+  </div>
+</nav>
+      
+
+      <section class="container my-container"> 
         {% block body %}
         
         {% endblock %}
         </section>
       
 
-        <footer class="bg-secondary text-white text-center py-3">  
+        <footer class="bg-secondary text-white text-center py-3 fixed-bottom">  
             &copy; 2020 - CODEUSES.XSON - All Rights Reserved!
         </footer>
 
