@@ -17,7 +17,7 @@
 
             {% endif %}
 
-            <span class="col offset-md-4 font-italic text-right"> Posté le {{ recette.createdAt|date("d/m/Y") }} à {{ recette.createdAt|date("H:i:s") }} dans la Catégorie <strong style ='color:darkgreen'> {{ recette.category.title }} </strong> </span>       
+            <span class="col offset-md-4 font-italic text-right"> Posté le {{ recette.createdAt|date("d/m/Y") }} à {{ recette.createdAt|date("H:i:s") }} dans la Catégorie <strong style ='color:darkgreen'></strong> </span>       
         </div>
 
     </div>
@@ -26,20 +26,7 @@
 
         <h2 class="text-center mt-5"> Derniers avis... </h2>
 
-        {% for comment in recette.comments %}
-
-            <div class="row border rounded mb-3 bg-dark text-white">
-                <div class="col-md-4">
-                    <span> {{ comment.author }} </span>
-                    <span class="font-italic">( {{ comment.createdAt|date('d/m/y à H:i:s') }} ) </span>
-                </div>
-                <div class="col-md-8">
-                    <p>{{ comment.content|raw }} </p>
-
-                </div>
-            </div>
-
-        {% endfor %}
+        
     </div>
 
 {% endblock %}
