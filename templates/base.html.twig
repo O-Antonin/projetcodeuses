@@ -10,49 +10,50 @@
 
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+
             <link rel="stylesheet" type="text/css" href="{{ asset ('css/style.css')}}">
 
         {% endblock %}
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
   
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">A propos</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Recettes
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Italienne</a>
+                    <a class="dropdown-item" href="#">Chinoise</a>
+                    <a class="dropdown-item" href="#">Antillaise</a>
+                    <a class="dropdown-item" href="#">Orientale</a>
+                    <a class="dropdown-item" href="#">Indienne</a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">A propos</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Recettes
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Italienne</a>
-          <a class="dropdown-item" href="#">Chinoise</a>
-          <a class="dropdown-item" href="#">Antillaise</a>
-          <a class="dropdown-item" href="#">Orientale</a>
-          <a class="dropdown-item" href="#">Indienne</a>
-        
 
-      </li>
-    
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Creer votre compte</button>
-      
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Identiez-vous</button>
-    </form>
-  </div>
-</nav>
+                </li>
+
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Creer votre compte</button>
+
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Identiez-vous</button>
+              </form>
+            </div>
+        </nav>
       
 
-      <section class="container my-container"> 
+        <section class="container my-container"> 
         {% block body %}
         
         {% endblock %}
