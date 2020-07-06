@@ -82,13 +82,13 @@ class BlogController extends AbstractController
             'editMode' => $recette->getId() !=null    
         ]);
         
-    }
+    }S
 
     /**
      * @Route("/blog/{id}", name="blog_show")
      */
 
-     public function show($id)
+    public function show($id)
      {
          $repo = $this->getDoctrine()->getRepository(Recette::class);
          
