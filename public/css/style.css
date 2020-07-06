@@ -1,5 +1,26 @@
 .my-container{
     min-height: 85vh !important;
+    margin: auto;
+    width: 900px;
+    height: 300px;
+    padding: auto;
+
+}
+
+.carousel-dimension{
+    width: 600px;
+    height: 367px;
+    margin: auto;
+    padding: auto;
+}
+.img-fluid{
+    margin: auto;
+    width: 900px;
+    height: 300px;
+    padding: auto;
+
+}
+
     position: relative;
     width: 1100px;
     display: flex;
@@ -22,3 +43,4 @@ body{
     
 
 }
+
