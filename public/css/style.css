@@ -1,12 +1,11 @@
 .my-container{
     min-height: 85vh;
-    position: relative;
-    width: 1100px;
     margin: auto;
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    width: 900px;
+    height: 300px;
+    padding: auto;
+    /* margin-bottom: 300px !important; */
+
 
 }
 
@@ -25,15 +24,17 @@
 }
 
 
-body{
-    
-    background: linear-gradient(to bottom, #c6ffdd, #fbd786, #f7797d);
-    font-family: 'Times New Roman', Times, sans-serif;
-    font-size: 19px;
-    color:#000;
-    margin: 0;
-    padding: 0;
-    
+   
 
+.card-group{
+    margin-bottom: 200px!important;
 }
+   
+.carousel-dimension{
+    margin-bottom: 200px!important;
 
+
+
+body{
+    background:#B9C1C0;
+}
