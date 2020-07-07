@@ -4,7 +4,18 @@
 
 {% block body %}
 
-<h1 class="display-4 text-center my-4">GESTION DES RECETTES</h1>
+<h1 class="display-4 text-center my-4">GESTION DES RECETTES
+  
+    <button type="button" class="btn btn-dark" >
+        
+            <a href="{{ path('admin_new_recette')}}">
+                ajouter
+            </a>
+       
+    </button>      
+</h1>
+
+    
 
 <div class="table-responsive">
     <table class="table table-bordered text-center">
@@ -30,8 +41,8 @@
                 <td>{{ data.content|raw }}</td>
                 <td>{{ data.createdAt|date("d/m/Y à H:i:s") }}</td>
                 {#<td>{{ data.category.tittle }}</td>#}
-                <td><a href="{{ path('admin_edit_recette', {'id': data.id }) }}" class="btn btndark"><i class="far fa-edit"></i></a></td> 
-                <td><a href=""class="btn danger"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a href="{{ path('admin_edit_recette', {'id': data.id }) }}" class="btn btndark"><i class="far fa-edit"></i></a></td>
+                <td><a href="{{ path('admin_delete_recette', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
         
         {% endfor %} 
