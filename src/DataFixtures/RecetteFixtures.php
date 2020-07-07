@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-
+use App\Entity\Category;
 use Faker\Factory;
 use App\Entity\Comment;
 use App\Entity\Recette;
@@ -16,23 +16,33 @@ class RecetteFixtures extends Fixture
 
         $faker = \Faker\Factory::create('fr_FR');
 
-        for($j = 1; $j <= mt_rand(4,6); $j++)
-            {   
-                
+        // creation of 5-6 categories 
+        for($i = 1; $i <= 5; $i++)
+        {
+            $category = new Category;
+
+            $category -> setTitle($faker->sentence())
+                      -> setDescription($faker->paragraph());
+
+            $manager  -> persist($category);
+
+            // creation of 4 - 6 Articles per category 
+            for($j = 1; $j <= mt_rand(4,6); $j++)
+            {
+
                 $recette = new Recette;
 
-                $content = '<p>' .join($faker->paragraphs(5),'</p><p>') .'</p>'; 
+                $content = '<p>' . join($faker->paragraph(5), '</p><p>') . '</p>';
 
-                
-                $recette->setTitle($faker->sentence()) //titre aléatoire
-                        ->setContent($content)          //parqgraphes aléatoire        
-                        ->setImage($faker->imageUrl())  //génère des URL d'image lorempixel aléatoire
-                        ->setCreatedAt($faker->dateTimeBetween('-6 months'));// création de date de commentaire d'il y a 6 mois à
-                        // aujour'hui
-                        //->setCategory($category); // on relie nos articles aus catégories crées juste au desus (clé étrangère)
+                $recette -> setTitle($faker->sentence())
+                         -> setContent($content)
+                         -> setImage($faker->imageUrl())
+                         -> setCreatedAt($faker->dateTimeBetween('-6 months'))
+                         -> setCategory($category);
+
                 $manager->persist($recette);
-
-                // Création entre 4 et 10 commentaires par recette
+                
+                 // Création entre 4 et 10 commentaires par recette
                 for($k =1; $k <= mt_rand(4,10); $k++)
 
                 {   // On instancie l'entité comment afin d'insérer des commentaires dans la BDD
@@ -56,8 +66,11 @@ class RecetteFixtures extends Fixture
 
                 }
 
-            }    
-      
+            }
+        
+
+        }
+    
         $manager->flush();
     }
 }

@@ -44,6 +44,12 @@ class Recette
     private $createdAt;
 
     /**
+
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="recettes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="recette", orphanRemoval=true)
      */
     private $comments;
@@ -52,6 +58,7 @@ class Recette
     {
         $this->comments = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -106,6 +113,16 @@ class Recette
         return $this;
     }
 
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
     /**
      * @return Collection|Comment[]
      */
@@ -133,6 +150,7 @@ class Recette
                 $comment->setRecette(null);
             }
         }
+
 
         return $this;
     }

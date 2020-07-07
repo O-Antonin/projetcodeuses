@@ -82,7 +82,7 @@ class BlogController extends AbstractController
             'editMode' => $recette->getId() !=null    
         ]);
         
-    }S
+    }
 
     /**
      * @Route("/blog/{id}", name="blog_show")
