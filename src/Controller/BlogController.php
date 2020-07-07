@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Recette;
+use App\Form\CommentType;
 use App\Form\RecetteType;
 use App\Repository\RecetteRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -89,7 +91,7 @@ class BlogController extends AbstractController
      */
 
 
-     public function show(Recette $recette)
+     public function show(Recette $recette, Request $request, EntityManagerInterface $manager)
 
 
      {
@@ -97,12 +99,31 @@ class BlogController extends AbstractController
          
          //$recette = $repo->find($id);
 
-         dump($recette);
+         $comment = new Comment();
+         $form = $this->createForm(CommentType::class, $comment);
+         $form->handleRequest($request); 
+
+         if($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreatedAt(new \DateTime()) // on génère la date pour l'insertion
+                    ->setRecette($recette); // on relie la recette au commentaire
+            $manager->persist($comment); // on prépare l'insertion 
+            $manager->flush();
+            return $this->redirectToRoute('blog_show', [ 'id' => $recette->getId()
+            ]); }
+         
+         
+
 
          return $this->render('blog/show.html.twig', [
-            'recette' => $recette
+            'recette' => $recette,
+            'commentForm' => $form->createView()
+
+            
 
         ]);
+
+
+
      }
 
    
