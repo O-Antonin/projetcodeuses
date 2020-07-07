@@ -126,9 +126,24 @@ class BlogController extends AbstractController
 
      }
 
-   
+    /**
+     * @Route("apropos", name = "about")
+     */
+    public function about()
+    {
+        
+        return $this->render('blog/about.html.twig',[
+            'title'=> 'Notre blog cuisine'
+        ]);
+
     
+      
+    }
+
+ 
 }
+
+
 
 
  

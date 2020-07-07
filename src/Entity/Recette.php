@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\RecetteRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Comment;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\RecetteRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -49,9 +50,11 @@ class Recette
      */
     private $category;
 
-    /** 
+
+    /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="recette", orphanRemoval=true)
      */
+
     private $comments;
 
     public function __construct()
