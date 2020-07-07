@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Recette;
+use App\Form\RecetteType;
 use App\Repository\RecetteRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -37,20 +40,71 @@ class BlogController extends AbstractController
     }
 
     /**
+     * @Route("blog/new", name="blog_create")
+    */
+    
+    public function form(Recette $recette = null, Request $request, EntityManagerInterface $manager) 
+    {
+
+        dump($request);
+
+        if(!$recette)
+        {
+            $recette = new Recette;
+        }
+        $form = $this->createForm(RecetteType::class, $recette);
+
+        $form->handleRequest($request); 
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+
+            if(!$recette->getId())
+            {
+
+               $recette->setCreatedAt(new \DateTime);
+
+            }
+            $manager->persist($recette);
+            $manager->flush(); 
+
+            dump($recette);
+
+            return $this->redirectToRoute('blog_show',[
+                    'id' => $recette->getId()
+                ]);
+        }
+
+
+
+        return $this->render('blog/create.html.twig', [
+            'formRecette' => $form->createView(), /// Predefined Symfony Method 'createView' which follows the above method 'createFormBuilder'
+            'editMode' => $recette->getId() !=null    
+        ]);
+        
+    }
+
+    /**
      * @Route("/blog/{id}", name="blog_show")
      */
 
-     public function show($id)
+
+     public function show(Recette $recette)
+
+
      {
-         $repo = $this->getDoctrine()->getRepository(Recette::class);
+         //$repo = $this->getDoctrine()->getRepository(Recette::class);
          
-         $recette = $repo->find($id);
+         //$recette = $repo->find($id);
+
+         dump($recette);
 
          return $this->render('blog/show.html.twig', [
             'recette' => $recette
 
         ]);
      }
+
     /**
      * @Route("apropos", name = "about")
      */
@@ -60,6 +114,7 @@ class BlogController extends AbstractController
         return $this->render('blog/about.html.twig',[
             'title'=> 'Notre blog cuisine'
         ]);
+
     
       
     }
