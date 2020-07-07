@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Back office | Getion des articles{% endblock %}
+
+{% block body %}
+
+<h1 class="display-4 text-center my-4">GETION  DES MEMBRES</h1>
+
+<div class="table-responsive">
+    <table class="table table-bordered text-center">
+        <tr class="bg-dark text-white">
+            
+            {% for data in colonnes %}
+                {% if data !='id' %}
+
+                    <th scope="col" >{{ data }}</th>
+
+                {% endif %}
+                
+            {% endfor %}
+            <th scope="col">Modification</th>
+            <th scope="col">Supprimer</th>
+        </tr>
+
+        {% for data in users %}
+
+            <tr>
+                <td>{{ data.email}}</td>
+                <td>{{ data.password}}</td>
+                <td>{{ data.username}}</td>
+                <td></td>
+                {#<td>{{ data.category.tittle }}</td>#}
+                <td><a href="" class="btn btndark"><i class="far fa-edit"></i></a></td>
+                <td><a href="" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>
+            </tr>
+        
+        {% endfor %} 
+    </table>
+</div>
+
+{% endblock %}

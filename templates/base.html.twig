@@ -7,7 +7,6 @@
 
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
@@ -23,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{{ path('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">A propos</a>
@@ -38,14 +37,23 @@
                     <a class="dropdown-item" href="{{path('blog') }}">Antillaise</a>
                     <a class="dropdown-item" href="{{path('blog') }}">Orientale</a>
                     <a class="dropdown-item" href="{{path('blog') }}">Indiennee</a>
+                </li>
+              
 
                 {% if app.user %}
                 </li>
                 <a class="nav-link" href="">Créer une recette</a>
                 </li>
                 {% endif %} 
+                
+                {% if is_granted('ROLE_ADMIN') %}
+                  <li class="nav-item active">
+                      <a class="nav-link" href="{{ path('admin') }}">BACKOFFICE</a>
+                  </li>
+              {% endif %}
 
               </ul>
+              
               <form class="form-inline my-2 my-lg-0">
                 {% if not app.user %}
 
