@@ -17,7 +17,7 @@
     </head>
     <body>
 
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
   
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
@@ -40,29 +40,34 @@
                 </li>
               
 
-               {% if is_granted('ROLE_ADMIN') %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('admin') }}">BACKOFFICE</a>
+                {% if app.user %}
                 </li>
-              
-              {% endif %}
-              
+                <a class="nav-link" href="">Créer une recette</a>
+                </li>
+                {% endif %} 
                 
+                {% if is_granted('ROLE_ADMIN') %}
+                  <li class="nav-item active">
+                      <a class="nav-link" href="{{ path('admin') }}">BACKOFFICE</a>
+                  </li>
+              {% endif %}
 
               </ul>
-             
-                        
-                <form class="form-inline my-2 my-lg-0">
+              
+              <form class="form-inline my-2 my-lg-0">
+                {% if not app.user %}
 
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Creer votre compte</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
 
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Identiez-vous</button>
-                </form>
-              
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
 
-              
-              
-              
+                {% else %}
+                
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">  <a href="{{ path('security_logout')}}">Déconnexion</a></button>
+
+                {% endif %} 
+              </form>
+
             </div>
         </nav>
       

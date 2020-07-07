@@ -13,11 +13,12 @@
 
             {% if app.user %} {#If the user is connected 'Modifier l'recette will be displayed' #}
                             
-            <span class="col-md-2"><a href="{{ path('blog_edit', {'id':recette.id}) }}"  class="text-left btn btn-warning">Modifier</a></span>
+            {# <span class="col-md-2"><a href="{{ path('blog_edit', {'id':recette.id}) }}"  class="text-left btn btn-warning">Modifier</a></span> #}
 
             {% endif %}
 
-            <span class="col offset-md-4 font-italic text-right"> Posté le {{ recette.createdAt|date("d/m/Y") }} à {{ recette.createdAt|date("H:i:s") }} dans la Catégorie <strong style ='color:darkgreen'></strong> </span>       
+
+            <span class="col offset-md-4 font-italic text-right"> Posté le {{ recette.createdAt|date("d/m/Y") }} à {{ recette.createdAt|date("H:i:s") }} dans la Catégorie <strong style ='color:darkgreen'></span>
         </div>
 
     </div>
@@ -25,6 +26,24 @@
     <div class="col-md-12">
 
         <h2 class="text-center mt-5"> Derniers avis... </h2>
+
+
+        <section id="commentaire" class="col-md-10 mx-auto"> 
+
+            {% for comment in recette.comments %}
+
+            <div class="comment">
+            <div class="row">
+            <div class="col-md-3">{{ comment.author }} <small>{{ comment.createdAt | date('d/m/Y à H:i:s') }}</small></div>
+            <div class="col-md-9">{{ comment.content | raw }}</div>
+            </div>
+            </div><hr>
+
+            {% endfor %}
+
+        </section>
+
+
 
         
     </div>
