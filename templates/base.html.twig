@@ -13,14 +13,16 @@
 
             <link rel="stylesheet" type="text/css" href="{{ asset ('css/style.css')}}">
 
+            <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+
         {% endblock %}
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bgnoir">
   
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
+              <ul class="navbar-nav mr-auto linkcolor">
                 <li class="nav-item active">
                   <a class="nav-link" href="{{ path('home') }}">Home</a>
                 </li>
@@ -31,7 +33,7 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    Recettes
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div class="dropdown-menu bgnoir" aria-labelledby="navbarDropdown">
 
                     <a class="dropdown-item" href="#">Chinoise</a>
                     <a class="dropdown-item" href="#">Antillaise</a>
@@ -61,13 +63,15 @@
                 {% if not app.user %}
 
 
-                <button class="btn btn-outline-success my-2 my-sm-0  mr-2" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
+                <button class="btn btn-light my-2 my-sm-0  mr-2" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
 
-                <button class="btn btn-outline-success my-2 my-sm-0 mr-2" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
+
+
+                <button class="btn btn-light my-2 my-sm-0 mr-2" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
 
                 {% else %}
                 
-                <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">  <a href="{{ path('security_logout')}}">Déconnexion</a></button>
+                <button class="btn btn-light my-2 my-sm-0 " type="submit">  <a href="{{ path('security_logout')}}">Déconnexion</a></button>
 
                 {% endif %} 
               </form>
@@ -84,7 +88,7 @@
       
         
 
-        <footer class="bg-secondary text-white text-center py-3 fixed-bottom">  
+        <footer class="bgnoir text-white text-center py-3 fixed-bottom">  
 <div class="container">
 
            <section class="section-footer">

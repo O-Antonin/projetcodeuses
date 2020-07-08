@@ -15,7 +15,7 @@
     
 {% endif %}
 
-<form action="{{ path('security_login') }}" method="post" class="col-md-5 mx-auto">
+<form action="{{ path('security_login') }}" method="post" class="col-md-5 mx-auto style-formulaire">
 
     <div class="form-group">
         <label for="_username">Email</label> 
@@ -27,7 +27,7 @@
         <input type="password" class="form-control" value="{{ last_username }}" name="_password" placeholder="Mot de passe..." required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Identifiez-vous</button>
+    <button type="submit" class="btn btn-secondary">Identifiez-vous</button>
 
 </form>
 

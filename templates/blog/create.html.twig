@@ -15,7 +15,7 @@
     {# form_start() fonction de TWIG permettant de commencer le formulaire, de générer la balise <form> ouvrante, Symfony intègre automatiquement l'attribut 'method="post"' #}{# form_end() fonction de TWIG permettant de terminer le formulaire, de générer la balise </form> fermante #}     {# form_row() fonction TWIG qui permet d'afficher les champs du formulaire 1 par 1 #}{# Le bouton submit est codé en dur puisque le formulaire servira à la fois et à insérer mais aussi à modifier #}{# SI on crée la bouton avec la fonction add() dans le controller, il sera difficile de modifier son lable (modifier ou supprimer) #}
     
     
-    {{form_start(formRecette, {'attr': {'class': 'col-md-7 mx-auto'}} ) }}
+    {{form_start(formRecette, {'attr': {'class': 'col-md-7 mx-auto style-formulaire'}} ) }}
 
         {{ form_row(formRecette.title, {'attr': {'placeholder': "Saisir le titre de la recette"}}) }}
 
@@ -25,7 +25,7 @@
 
         {{ form_row(formRecette.image, {'attr': {'placeholder': "Saisir l'URL de l'image..."}}) }}
 
-        <button type="submit" class="btn btn-info">
+        <button type="submit" class="btn btn-secondary">
         
         {% if editMode %}
             Enregistrer les modifications
