@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Back office | Getion des articles{% endblock %}
+
+{% block body %}
+
+<h1 class="display-4 text-center my-4">GESTION DES COMMENTAIRES </h1>
+
+<div class="table-responsive mt-5">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Author</th>
+            <th scope="col">Content</th>
+            <th scope="col">Created Time</th>
+            <th scope="col">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+    {% for comment in comments %}          
+        <tr>
+    
+            <td>{{ comment.author }} </td>
+            <td>{{ comment.content | raw }} </td>
+            <td>{{ comment.createdAt | date('d/m/ Y à H:i:s') }}</td>
+            <td><a href="{{ path('admin_delete_comment', { 'id': comment.id}) }}" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>
+        </tr>
+    {% endfor %}    
+        </tbody>
+    </table>
+</div>                   
+             
+
+
+
+
+                
+           
+    
+         
+
+
+{% endblock %}

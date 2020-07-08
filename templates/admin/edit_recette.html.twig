@@ -6,7 +6,7 @@
 
 <h1 class="display-4 text-center my-4">
     {% if editMode %}         
-        BACKOFFICE | Modification de l'recette  
+        BACKOFFICE | Modification du recette  
 
     {% else %}         
         BACKOFFICE | Poster un nouvel recette    
@@ -19,7 +19,7 @@
 
     {{ form_row(formEdit.title, {'attr':{'placeholder': "Saisir le titre de l'recette..."}}) }}
 
-    {# {{ form_row(formEdit.category) }} #}
+    {{ form_row(formEdit.category) }}
 
     {{ form_row(formEdit.content, {'attr':{'placeholder': "Contenu le titre de l'recette...","rows":10}}) }}
 
