@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<h1 class="display-4 text-center my-4">GESTION DES RECETTES
+<h1 class="display-4 text-center my-4">Gestion des recettes <br>
   
     <button type="button" class="btn btn-dark" >
         
@@ -17,8 +17,8 @@
 
     
 
-<div class="table-responsive">
-    <table class="table table-bordered text-center">
+
+    <table class="table table-bordered text-center bg-light effet-table">
         <tr class="bg-dark text-white">
             
             {% for data in colonnes %}
@@ -47,6 +47,6 @@
         
         {% endfor %} 
     </table>
-</div>
+
 
 {% endblock %}

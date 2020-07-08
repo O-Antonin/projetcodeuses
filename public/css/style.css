@@ -2,9 +2,8 @@
     min-height: 85vh;
     margin: auto;
     width: 900px;
-    height: 300px;
-    padding: auto;
-    /* margin-bottom: 300px !important; */
+    min-height: 300px;
+    margin-bottom: 300px !important; 
 
 
 }
@@ -13,13 +12,16 @@
     width: 600px;
     height: 367px;
     margin: auto;
+    margin-top: 84px!important;
     padding: auto;
+    border: 4px solid white;
 }
 .img-fluid{
     margin: auto;
     width: 900px;
     height: 300px;
     padding: auto;
+    border: solid 3px white;
 
 }
 
@@ -32,9 +34,59 @@
    
 .carousel-dimension{
     margin-bottom: 200px!important;
-
+}
 
 
 body{
-    background:#B9C1C0;
+    /* background:#B9C1C0; */
+    /* background:url(https://previews.123rf.com/images/ivandzyuba/ivandzyuba1608/ivandzyuba160800014/61631400-arri%C3%A8re-plan-culinaire-des-ustensiles-de-cuisine.jpg) !important; */
+    background: url(../images/salad.jpg) !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    
+
 }
+
+h1, h2 {
+
+    margin-top:70px!important;
+    padding-bottom: 34px;
+    font-family: 'Parisienne', cursive;
+    color: white;
+}
+.titre-avis {
+    font-family: 'Parisienne', cursive;
+    color: black;
+}
+
+.bgnoir {
+    background-color: black;
+}
+
+.linkcolor a {
+color: white!important;
+
+}
+
+.btn a {
+color: black!important;
+
+}
+
+.effet-table {
+ border-radius: 4px;
+ box-shadow:  3px 2px 5px olive;
+
+}
+
+.style-formulaire{
+    background-color: white;
+    padding: 19px;
+    border-radius: 5px;
+}
+
+.card-title {
+    font-family: 'Parisienne', cursive;
+}
+
