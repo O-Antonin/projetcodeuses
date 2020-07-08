@@ -32,7 +32,7 @@ class RecetteFixtures extends Fixture
 
                 $recette = new Recette;
 
-                $content = '<p>' . join($faker->paragraph(5), '</p><p>') . '</p>';
+                $content = '<p>' . join($faker->paragraphs(5), '</p><p>') . '</p>';
 
                 $recette -> setTitle($faker->sentence())
                          -> setContent($content)

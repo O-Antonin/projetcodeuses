@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Back office | Getion des articles{% endblock %}
+{% block title %}Back office | Getion des membres{% endblock %}
 
 {% block body %}
 
-<h1 class="display-4 text-center my-4">GETION  DES MEMBRES</h1>
+<h1 class="display-4 text-center my-4">GETION  DES MEMBRES</h1>   
+
 
 <div class="table-responsive">
     <table class="table table-bordered text-center">
@@ -18,7 +19,6 @@
                 {% endif %}
                 
             {% endfor %}
-            <th scope="col">Modification</th>
             <th scope="col">Supprimer</th>
         </tr>
 
@@ -28,10 +28,8 @@
                 <td>{{ data.email}}</td>
                 <td>{{ data.password}}</td>
                 <td>{{ data.username}}</td>
-                <td></td>
-                {#<td>{{ data.category.tittle }}</td>#}
-                <td><a href="" class="btn btndark"><i class="far fa-edit"></i></a></td>
-                <td><a href="" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>
+                <td>{{data.Roles[0]}}</td>
+                <td><a href="{{ path('admin_delete_user', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>
             </tr>
         
         {% endfor %} 
