@@ -18,18 +18,19 @@
 
                 {% endif %}
 
-
                 <span class="col offset-md-4 font-italic text-right"> Posté le {{ recette.createdAt|date("d/m/Y") }} à {{ recette.createdAt|date("H:i:s") }} dans la Catégorie <strong style ='color:darkgreen'> {{ recette.category.title }} </strong> </span>    
             </div>
 
-        </div>
+    </div>
 
-        <div class="col-md-12">
+
+        <div class="col-md-12 style=formulaire">
 
             <h2 class="text-center mt-5"> Derniers avis... </h2>
 
 
             <section id="commentaire" class="col-md-10 mx-auto"> 
+
 
                 {% for comment in recette.comments %}
 
@@ -41,7 +42,14 @@
                 </div><hr>
 
                 {% endfor %}
-
+                
+                 {{ form_start(commentForm) }}
+                  {{ form_row(commentForm.Author, {'label': 'Auteur', 'attr': {'plac
+                 eholder': "Votre nom..."}}) }}
+                 {{ form_row(commentForm.Content, {'label': 'Votre message', 'attr' : {'placeholder': "Saisir votre message..."}}) }}
+                 <button type="submit" class="btn btn-primary mb- 3">Poster votre commentaire</button>
+                {{ form_end(commentForm) }}
+        
             </section>
             
         </div>
