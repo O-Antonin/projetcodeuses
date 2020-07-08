@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Back office | Modifier des categorys{% endblock %}
+
+{% block body %}
+
+<h1 class="display-4 text-center my-4">
+    {% if editMode %}         
+        BACKOFFICE | Modification du category  
+
+    {% else %}         
+        BACKOFFICE | Poster un nouvel category    
+        
+    {% endif %}
+</h1> 
+   
+
+    {{ form_start(formEdit, {'attr':{'class': 'col-md-7 mx-auto'}}) }}
+
+    {{ form_row(formEdit.title, {'attr':{'placeholder': "Saisir le titre de l'category..."}}) }}
+
+    {{ form_row(formEdit.description, {'attr':{'placeholder': "Description","rows":10}}) }}
+
+    <button type="submit" class="btn btn-info">
+        {% if editMode %}            
+            Enregistrer les modifications         
+        {% else %}             
+            Ajouter le catégorie  
+        {% endif %}     
+    </button>
+
+
+    {{ form_end(formEdit) }}
+
+
+{% endblock %}
