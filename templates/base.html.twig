@@ -13,6 +13,8 @@
 
             <link rel="stylesheet" type="text/css" href="{{ asset ('css/style.css')}}">
 
+            <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+
         {% endblock %}
     </head>
     <body>
@@ -32,7 +34,10 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    Recettes
                   </a>
-                  <div class="dropdown-menu bgnoir" aria-labelledby="navbarDropdown ">
+
+                
+                  <div class="dropdown-menu bgnoir" aria-labelledby="navbarDropdown">
+
 
                     <a class="dropdown-item" href="{{ path('blog') }}">Chinoise</a>
                     <a class="dropdown-item" href="{{ path('blog') }}">Antillaise</a>
@@ -45,9 +50,9 @@
 
 
                 {% if app.user %}
-                </li>
-                <a class="nav-link" href="">Créer une recette</a>
-                </li>
+                  </li>
+                    <a class="nav-link" href="{{ path('blog_create') }}">Créer une recette</a>
+                  </li>
                 {% endif %} 
                 
                 {% if is_granted('ROLE_ADMIN') %}
@@ -61,7 +66,13 @@
               <form class="form-inline my-2 my-lg-0">
                 {% if not app.user %}
 
-                <button class="btn btn-light my-2 my-sm-0  mr-2" type="submit"> <a href="{{ path('security_registration') }}">Créer votre compte</a> </button>
+
+
+
+                <button class="btn btn-light my-2 my-sm-0  mr-2" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
+
+
+
 
                 <button class="btn btn-light my-2 my-sm-0 mr-2" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
 

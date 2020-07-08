@@ -23,9 +23,9 @@
 
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12 style-formulaire">
 
-        <h2 class="text-center mt-5"> Derniers avis... </h2>
+        <h2 class="text-center mt-5 titre-avis"> Derniers avis... </h2>
 
 
         <section id="commentaire" class="col-md-10 mx-auto"> 
@@ -40,6 +40,16 @@
             </div><hr>
 
             {% endfor %}
+
+        {{ form_start(commentForm) }}
+        {{ form_row(commentForm.Author, {'label': 'Auteur', 'attr': {'plac
+        eholder': "Votre nom..."}}) }}
+        {{ form_row(commentForm.Content, {'label': 'Votre message', 'attr' : {'placeholder': "Saisir votre message..."}}) }}
+        <button type="submit" class="btn btn-primary mb- 3">Poster votre commentaire</button>
+        {{ form_end(commentForm) }}
+
+
+
 
         </section>
 
