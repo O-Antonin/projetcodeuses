@@ -4,11 +4,10 @@
     width: 900px;
     min-height: 300px;
     margin-bottom: 300px !important; 
-
-
+    
 }
 
-.carousel-dimension{
+.carousel-dimension {
     width: 600px;
     height: 367px;
     margin: auto;
@@ -16,7 +15,7 @@
     padding: auto;
     border: 4px solid white;
 }
-.img-fluid{
+.img-fluid {
     margin: auto;
     width: 900px;
     height: 300px;
@@ -36,6 +35,18 @@
     margin-bottom: 200px!important;
 }
 
+    
+
+
+.card-title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.card-text{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.text-black{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 body{
     /* background:#B9C1C0; */
@@ -86,7 +97,5 @@ color: black!important;
     border-radius: 5px;
 }
 
-.card-title {
-    font-family: 'Parisienne', cursive;
-}
+
 

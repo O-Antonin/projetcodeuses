@@ -19,26 +19,30 @@
     </head>
     <body>
 
+
         <nav class="navbar navbar-expand-lg navbar-light bgnoir">
   
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto linkcolor">
                 <li class="nav-item active">
-                  <a class="nav-link" href="{{ path('home') }}">Home</a>
+                  <a class="nav-link " href="{{ path('home') }}">Accueil</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">A propos</a>
+                  <a class="nav-link " href="{{ path('about') }}">A propos</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    Recettes
                   </a>
+
+                
                   <div class="dropdown-menu bgnoir" aria-labelledby="navbarDropdown">
 
-                    <a class="dropdown-item" href="#">Chinoise</a>
-                    <a class="dropdown-item" href="#">Antillaise</a>
-                    <a class="dropdown-item" href="#">Orientale</a>
-                    <a class="dropdown-item" href="#">Indienne</a>
+
+                    <a class="dropdown-item" href="{{ path('blog') }}">Chinoise</a>
+                    <a class="dropdown-item" href="{{ path('blog') }}">Antillaise</a>
+                    <a class="dropdown-item" href="{{ path('blog') }}">Orientale</a>
+                    <a class="dropdown-item" href="{{ path('blog') }}">Indienne</a>
                     <a class="dropdown-item" href="{{path('blog') }}">Afficher toutes les spécialités</a>
                 </li>
               
@@ -63,7 +67,10 @@
                 {% if not app.user %}
 
 
+
+
                 <button class="btn btn-light my-2 my-sm-0  mr-2" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
+
 
 
 
@@ -92,9 +99,11 @@
 <div class="container">
 
            <section class="section-footer">
-          <img src="images/lin2.png" />
-          <img src="images/twi.png" />
-          <img src="images/insta.png" />
+           <p>Suivez nous</p>
+           
+          <img src="images/li.png" />
+          <img src="images/twitter2.png" />
+          <img src="images/instagram.png" />
         </section>
              
               
