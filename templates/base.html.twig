@@ -31,20 +31,23 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    Recettes
                   </a>
+                {# {% for cat in category %} #}
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{path('blog') }}">Italienne</a>
-                    <a class="dropdown-item" href="{{path('blog') }}">Chinoise</a>
-                    <a class="dropdown-item" href="{{path('blog') }}">Antillaise</a>
-                    <a class="dropdown-item" href="{{path('blog') }}">Orientale</a>
-                    <a class="dropdown-item" href="{{path('blog') }}">Indiennee</a>
-                    <a class="dropdown-item" href="{{path('blog') }}">Afficher toutes les spécialités</a>
+                  <a class="dropdown-item" href="{{ path('blog') }}">Afficher toutes</a>
+                    <a class="dropdown-item" href="{{ path('blog') }}">Recetttes Chinoises</a>
+                    <a class="dropdown-item" href="{{ path('blog') }}">Recetttes Antillaises</a>
+                    {# <a class="dropdown-item" href="{{ path('oriental', {'category': cat.category}) }}">Recetttes Orientales</a> #}
+                    <a class="dropdown-item" href="{{ path('blog') }}">Recetttes Indiennes</a>
+                    <a class="dropdown-item" href="{{ path('blog') }}">Autres</a>
+                {# {% endfor %}     #}
                 </li>
               
 
 
                 {% if app.user %}
                 </li>
-                <a class="nav-link" href="">Créer une recette</a>
+                <a class="nav-link" href="{{ path('blog_create') }}">Créer une Récette</a>
+                    
                 </li>
                 {% endif %} 
                 
@@ -77,6 +80,28 @@
         <section class="container my-container"> 
         {% block body %}
         
+<h2 class="display-4 text-center my-4 animate__animated animate__backInDown" style="animation-delay: 1.2s;"> Liste des Recettes Chinoises</h2>
+    
+    {# <div class="row d-flex justify-content-around ">
+
+        {% for cat in category %}
+
+            <div class="card mb-4 text-center border border-dark rounded-lg animate__animated animate__zoomIn" style="width: 18rem;">
+                <img src="{{ cat.image }}" class="card-img-top" alt="{{ cat.title }}">
+                <div class="card-body">
+                    <h3 class="card-title"> {{ cat.title }} </h3> <!-- to dynamically change the title name for each cards -->
+                    
+                    <p class="card-text"> {{ cat.content|slice(0, 100)|raw }}... </p> <!-- 'raw' or 'striptags'to remove the <p> tags from the sides on the contents-->
+                    <hr>
+                    <p> Posté le {{ cat.createdAt|date("d/m/Y") }} à {{ cat.createdAt|date("H:i:s") }} </p>
+                    <a href="{{ path('blog_show', {'id':cat.id}) }}" class="btn btn-dark">Voir le détail</a>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div> #}
+
         {% endblock %}
         </section>
       
