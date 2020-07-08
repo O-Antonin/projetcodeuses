@@ -41,6 +41,16 @@
 
             {% endfor %}
 
+        {{ form_start(commentForm) }}
+        {{ form_row(commentForm.Author, {'label': 'Auteur', 'attr': {'plac
+        eholder': "Votre nom..."}}) }}
+        {{ form_row(commentForm.Content, {'label': 'Votre message', 'attr' : {'placeholder': "Saisir votre message..."}}) }}
+        <button type="submit" class="btn btn-primary mb- 3">Poster votre commentaire</button>
+        {{ form_end(commentForm) }}
+
+
+
+
         </section>
 
 
