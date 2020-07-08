@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Entity\Recette;
+use App\Entity\Category;
 use App\Form\CommentType;
 use App\Form\RecetteType;
+use App\Repository\CategoryRepository;
 use App\Repository\RecetteRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,6 +42,8 @@ class BlogController extends AbstractController
             
         ]);
     }
+
+    
 
     /**
      * @Route("blog/new", name="blog_create")
@@ -86,14 +90,13 @@ class BlogController extends AbstractController
         
     }
 
+    
+
     /**
      * @Route("/blog/{id}", name="blog_show")
-     */
-
+    */
 
      public function show(Recette $recette, Request $request, EntityManagerInterface $manager)
-
-
      {
          //$repo = $this->getDoctrine()->getRepository(Recette::class);
          
@@ -127,6 +130,28 @@ class BlogController extends AbstractController
      }
 
     /**
+
+     * @Route("blog/{category}/categorie", name="blog_category")
+     */
+   
+    public function oriental(CategoryRepository $repo, $category)
+    {
+        // $repo = $this->getDoctrine()->getRepository(Recette::class);
+
+        $categories = $repo->findOneBy([
+            'title' => $category
+        ]);
+
+        $recettes = $categories->getRecettes();
+
+        dump($recettes);
+
+        return $this->render('base.html.twig', [
+            'controller_name' => 'BlogController',
+            'category' => $categories
+        ]);
+    }
+
      * @Route("apropos", name = "about")
      */
     public function about()
@@ -135,6 +160,7 @@ class BlogController extends AbstractController
         return $this->render('blog/about.html.twig',[
             'title'=> 'Notre blog cuisine'
         ]);
+
 
     
       

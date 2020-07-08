@@ -53,9 +53,7 @@ body{
     /* background:url(https://previews.123rf.com/images/ivandzyuba/ivandzyuba1608/ivandzyuba160800014/61631400-arri%C3%A8re-plan-culinaire-des-ustensiles-de-cuisine.jpg) !important; */
     background: url(../images/salad.jpg) !important;
     background-size: cover;
-    background-repeat: no-repeat;
-    
-    
+    background-repeat: no-repeat;   
 
 }
 
@@ -96,6 +94,7 @@ color: black!important;
     padding: 19px;
     border-radius: 5px;
 }
+
 
 
 
