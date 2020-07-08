@@ -2,20 +2,20 @@
     min-height: 85vh;
     margin: auto;
     width: 900px;
-    height: 300px;
+    min-height: 300px;
     padding: auto;
-    /* margin-bottom: 300px !important; */
+     margin-bottom: 300px !important; 
 
 
 }
 
-.carousel-dimension{
+.carousel-dimension {
     width: 600px;
     height: 367px;
     margin: auto;
     padding: auto;
 }
-.img-fluid{
+.img-fluid {
     margin: auto;
     width: 900px;
     height: 300px;
@@ -34,7 +34,29 @@
     margin-bottom: 200px!important;
 
 
+    }
 
-body{
-    background:#B9C1C0;
+
+
+body {
+    background-image:url();
+}
+.bgnoir{
+    background-color: black;
+}
+
+.linkcolor a{
+    color:white!important;
+}
+.btn a{
+    color: black!important;
+}
+.card-title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.card-text{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.text-black{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
