@@ -172,7 +172,7 @@ class BlogController extends AbstractController
     public function oriental(CategoryRepository $repo, $category)
     {
         // $repo = $this->getDoctrine()->getRepository(Recette::class);
-
+https://github.com/O-Antonin/projetcodeuses/pull/25/conflict?name=templates%252Fbase.html.twig&ancestor_oid=e6483a2ef6d1e6bec8bbd1c420e838145442d8c9&base_oid=528318ff02cc0090370f179d1f55c133d9a17ec6&head_oid=8bff39e64486b68f051f0ca14a4c31e2cc541177
         $categories = $repo->findOneBy([
             'title' => $category
         ]);
@@ -189,9 +189,9 @@ class BlogController extends AbstractController
 
 
    
-  
     /** 
      * @Route("/apropos", name="about")
+
      */
 
     public function about()
