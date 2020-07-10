@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Bienvenu sur le Blog des Recettes {% endblock %}</title>
         {% block stylesheets %}
 
@@ -15,33 +16,34 @@
 
             <link rel="stylesheet" type="text/css" href="{{ asset ('css/style.css')}}">
 
-            
-
         {% endblock %}
     </head>
     <body>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light bgnoir">
   
+  
+
+        <nav class="navbar navbar-expand-lg navbar-light bgnoir">
+
+          <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded police-menu bouttonmenu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto linkcolor">
                 <li class="nav-item active">
-                  <a class="nav-link " href="{{ path('home') }}">Accueil</a>
+                  <a class="nav-link" href="{{ path('home') }}">Accueil</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="{{ path('about') }}">A propos</a>
                 </li>
+
                 <li class="nav-item">
                   <a class="nav-link " href="{{ path('list_category') }}">Catégories</a>
                 </li>
                 
                     
                     {# <a class="dropdown-item" href="{{ path('blog_category', {'category': cat.category}) }}">Recetttes Orientales</a>  #}
-                    
-
-                </li>
-                   
+                                       
 
                 {% if app.user %}
 
@@ -58,33 +60,36 @@
               {% endif %}
 
               </ul>
-              
-              
+      
+              {% if not app.user %}
 
-                {% if not app.user %}
+                  
 
+                  <button class="btn btn-light my-2 my-sm-0  mr-2 loginresponsive" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
+               
 
+                  <button class="btn btn-light my-2 my-sm-0 mr-2 loginresponsive" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
 
-                 
-                <button class="btn btn-light my-2 my-sm-0  mr-2" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
-
-
-
-
-                <button class="btn btn-light my-2 my-sm-0 mr-2" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
+                  
 
                 {% else %}
                 
-                <button class="btn btn-light my-2 my-sm-0 " type="submit">  <a href="{{ path('security_logout')}}">Déconnexion</a></button>
+                  
+
+                  <button class="btn btn-light my-2 my-sm-0 " type="submit">  <a href="{{ path('security_logout')}}">Déconnexion</a></button>
+
+                  
 
                 {% endif %} 
+
+                
               </form>
 
             </div>
         </nav>
       
 
-        <section class="container my-container"> 
+        <section class="container-fluid my-container"> 
         {% block body %}
         
 
@@ -116,20 +121,26 @@
       
         
 
-        <footer class="bgnoir text-white text-center py-3 fixed-bottom">  
-<div class="container">
+        <footer class="bgnoir text-white text-center py-3 fixed-bottom"> 
+                <p class="police">Nous rejoindre</p> 
 
-        <section class="section-footer">
-        <p>Suivez nous</p>
+            <div class="container ">
+
+           <section class="section-footer">
         
-        <img src="images/li.png" />
-        <img src="images/twitter2.png" />
-        <img src="images/instagram.png" />
-        </section>
-             
-              
-            &copy;  CODEUSES.XSON 2020
-            </div>
+               <img src="../images/li.png" />
+               <img src="../images/oiseau.png" />
+                <img src="../images/snap.png" />
+          </section>
+          
+              <p>
+        4 rue de la gastronomie <br>
+        75000 Paris<br>
+        &copy;  CIAO 2020
+             </p>
+
+          </div>
+
         </footer>
 
         {% block javascripts %}

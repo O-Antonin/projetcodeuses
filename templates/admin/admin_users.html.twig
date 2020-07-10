@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Back office | Getion des membres{% endblock %}
+{% block title %}Back office | Gestion des membres{% endblock %}
 
 {% block body %}
 
@@ -8,8 +8,8 @@
 
 
 <div class="table-responsive">
-    <table class="table table-bordered text-center">
-        <tr class="bg-dark text-white">
+    <table class="table table-bordered text-center bg-white">
+        <tr class="bg-dark ">
             
             {% for data in colonnes %}
                 {% if data !='id' %}
@@ -19,18 +19,18 @@
                 {% endif %}
                 
             {% endfor %}
-            <th scope="col">Supprimer</th>
+            <th scope="col ">Supprimer</th>
         </tr>
 
         {% for data in users %}
 
-            <tr>
+            <tr class="text-black">
                 <td>{{ data.email}}</td>
                 <td>{{ data.password}}</td>
                 <td>{{ data.username}}</td>
                 <td>{{data.Roles[0]}}</td>
-                <td><a href="{{ path('admin_delete_user', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>
-            </tr>
+                <td><a href="{{ path('admin_delete_user', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt btn btn-danger text-white"></i></a></td>
+            </tr> 
         
         {% endfor %} 
     </table>
