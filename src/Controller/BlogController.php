@@ -151,7 +151,7 @@ class BlogController extends AbstractController
             'category' => $categories
         ]);
     }
-
+    /** 
      * @Route("apropos", name = "about")
      */
     public function about()
