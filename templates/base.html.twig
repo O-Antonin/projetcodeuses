@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Bienvenu sur le Blog des Recettes {% endblock %}</title>
         {% block stylesheets %}
 
@@ -20,13 +21,17 @@
     <body>
 
 
+  
+  
+
         <nav class="navbar navbar-expand-lg navbar-light bgnoir">
 
           <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded police-menu bouttonmenu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto linkcolor">
                 <li class="nav-item active">
-                  <a class="nav-link " href="{{ path('home') }}">Accueil</a>
+                  <a class="nav-link" href="{{ path('home') }}">Accueil</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="{{ path('about') }}">A propos</a>
@@ -39,10 +44,10 @@
                 {# {% for cat in category %} #}
                   <div class="dropdown-menu bgnoir" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ path('blog') }}">Afficher toutes</a>
-                    <a class="dropdown-item" href="{{ path('blog') }}">Recetttes Chinoises</a>
-                    <a class="dropdown-item" href="{{ path('blog') }}">Recetttes Antillaises</a>
+                    <a class="dropdown-item" href="{{ path('blog') }}">Plat Chinois</a>
+                    <a class="dropdown-item" href="{{ path('blog') }}">plat Antillais</a>
                     {# <a class="dropdown-item" href="{{ path('oriental', {'category': cat.category}) }}">Recetttes Orientales</a> #}
-                    <a class="dropdown-item" href="{{ path('blog') }}">Recetttes Indiennes</a>
+                    <a class="dropdown-item" href="{{ path('blog') }}">plat Indien</a>
                     <a class="dropdown-item" href="{{ path('blog') }}">Autres</a>
                 {# {% endfor %}     #}
 
@@ -108,7 +113,7 @@
         </nav>
       
 
-        <section class="container my-container"> 
+        <section class="container-fluid my-container"> 
         {% block body %}
         
 <h2 class="display-4 text-center my-4 animate__animated animate__backInDown" style="animation-delay: 1.2s;"> Liste des Recettes Chinoises</h2>
@@ -138,20 +143,27 @@
       
         
 
-        <footer class="bgnoir text-white text-center py-3 fixed-bottom">  
-<div class="container">
+        <footer class="bgnoir text-white text-center py-3 fixed-bottom"> 
+                <p class="police">Nous rejoindre</p> 
+
+            <div class="container ">
 
            <section class="section-footer">
-           <p>Suivez nous</p>
+            
            
-          <img src="images/li.png" />
-          <img src="images/twitter2.png" />
-          <img src="images/instagram.png" />
-        </section>
-             
-              
-            &copy;  CODEUSES.XSON 2020
-            </div>
+               <img src="../images/li.png" />
+               <img src="../images/oiseau.png" />
+                <img src="../images/snap.png" />
+          </section>
+          
+              <p>
+        4 rue de la gastronomie <br>
+        75000 Paris<br>
+        &copy;  CIAO 2020
+             </p>
+
+          </div>
+
         </footer>
 
         {% block javascripts %}
