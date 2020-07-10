@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Back office | Getion des articles{% endblock %}
+{% block title %}Back office | Gestion des articles{% endblock %}
 
 {% block body %}
 
-<h1 class="display-4 text-center my-4">GESTION DES COMMENTAIRES </h1>
+<h1 class="display-4 text-center my-4">Gestion des commentaires </h1>
 
 <div class="table-responsive mt-5">
-    <table class="table">
-        <thead class="thead-dark">
+    <table class="table text-black bg-white">
+        <thead class="thead-dark text-center">
         <tr>
-            <th scope="col">Author</th>
-            <th scope="col">Content</th>
-            <th scope="col">Created Time</th>
+            <th scope="col">Auteur</th>
+            <th scope="col">Contenu</th>
+            <th scope="col">Heure de Creation</th>
             <th scope="col">Supprimer</th>
         </tr>
         </thead>
@@ -23,7 +23,7 @@
             <td>{{ comment.author }} </td>
             <td>{{ comment.content | raw }} </td>
             <td>{{ comment.createdAt | date('d/m/ Y à H:i:s') }}</td>
-            <td><a href="{{ path('admin_delete_comment', { 'id': comment.id}) }}" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>
+            <td><a href="{{ path('admin_delete_comment', { 'id': comment.id}) }}" class="text-dark"><i class="fas fa-trash-alt btn btn-danger text-white"></i></a></td>
         </tr>
     {% endfor %}    
         </tbody>

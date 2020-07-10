@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %} 
+
+
+
+{% block body %}
+
+<h1 class="display-4 text-center my-4">Nous contacter</h1>
+
+    {% for message in app.flashes('success') %}
+    <div class="col-md-5 mx-auto alert alert-success text-center">
+    {{ message }} 
+    </div>
+    {% endfor %}
+
+{{ form_start(formContact, {'attr' : {'class' : 'col-md-6 mx-auto style-formulaire'}} ) }}
+
+{{ form_row(formContact.firstname, {'label' : "Prénom"}) }}
+
+{{ form_row(formContact.lastname, {'label' : "Nom de famille"}) }}
+
+{{ form_row(formContact.phone, {'label' : "Téléphone"}) }}
+
+{{ form_row(formContact.email, {'label' : "email"}) }}
+
+{{ form_row(formContact.message, {'label' : "Message"}) }}
+
+<button type="submit" class="btn btn-secondary">Envoyer</button>
+
+{{ form_end(formContact) }}
+
+
+{% endblock %}
