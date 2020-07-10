@@ -3,13 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\Contact;
 use App\Entity\Recette;
 use App\Entity\Category;
 use App\Form\CommentType;
+use App\Form\ContactType;
 use App\Form\RecetteType;
-use App\Repository\CategoryRepository;
 use App\Repository\RecetteRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Notification\ContactNotification;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -90,7 +93,39 @@ class BlogController extends AbstractController
         
     }
 
-    
+    /**
+      * @Route("blog/contact", name="blog_contact")
+      */
+
+      public function contact(Request $request, EntityManagerInterface $manager, ContactNotification $notification) 
+
+      {
+         $contact = new Contact();
+
+         $form = $this->createForm(ContactType::class, $contact);
+
+         $form->handleRequest($request);
+         
+ 
+         if ($form->isSubmitted() && $form->isValid()) {
+
+            $notification->notify($contact);
+
+            $manager->persist($contact);
+
+            $manager->flush();
+
+            $this->addFlash('success', 'Votre Email a bien été envoyé');   
+
+            return $this->redirectToRoute('blog_contact');
+ 
+         }
+ 
+         return $this->render("blog/contact.html.twig", [
+             'formContact'=> $form->createView()
+         ]);
+ 
+      }
 
     /**
      * @Route("/blog/{id}", name="blog_show")
@@ -151,8 +186,8 @@ class BlogController extends AbstractController
             'category' => $categories
         ]);
     }
-
-     * @Route("apropos", name = "about")
+    /** 
+     * @Route("/apropos", name="about")
      */
     public function about()
     {
@@ -165,6 +200,8 @@ class BlogController extends AbstractController
     
       
     }
+
+     
 
  
 }
