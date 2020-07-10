@@ -5,12 +5,16 @@ namespace App\Entity;
 use App\Entity\Comment;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\RecetteRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=RecetteRepository::class)
+ * @Vich\Uploadable
  */
 class Recette
 {
@@ -29,9 +33,13 @@ class Recette
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Url()
      */
     private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="recettes_Images", fileNameProperty="image")
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="text")
@@ -56,6 +64,11 @@ class Recette
      */
 
     private $comments;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
 
     public function __construct()
     {
@@ -85,7 +98,7 @@ class Recette
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
@@ -96,6 +109,22 @@ class Recette
     {
         return $this->content;
     }
+
+    public function getImageFile(): ?File //////// VichUploader commands
+    {
+    return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile = null): self
+    {
+    $this->imageFile = $imageFile;
+
+    if($this->imageFile instanceof UploadedFile){
+    $this->updated_at = new \DateTime('now');
+    }
+    return $this;
+    }                                       //////// VichUploader commands
+
 
     public function setContent(string $content): self
     {
@@ -157,6 +186,18 @@ class Recette
             }
         }
 
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }

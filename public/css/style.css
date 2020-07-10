@@ -35,9 +35,6 @@
     margin-bottom: 200px!important;
 }
 
-    
-
-
 .card-title{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -95,6 +92,103 @@ color: black!important;
     border-radius: 5px;
 }
 
+.hov img:hover{
+     /* filter: initial; */
+     filter:brightness(1.2);
+     transform: scale(1.025);
+     transition: 1.5s;
 
+}
 
+/**********Category List Design begins ***********/
 
+.category-list {
+    margin: 0 auto;
+    list-style-type: none;
+    width: 960px;
+    text-align: center;
+  }
+  
+  .category-list li {
+    padding: 20px;
+    text-decoration: none;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    color: #fff;
+    font-weight: lighter;
+    font-size: 28px;
+    line-height: 28px;
+    margin: 10px;
+    padding: 20px 60px;
+    border-radius: 20px;
+    float: left;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.1s ease, padding 0.1s ease;
+    }
+
+    .category-list a{
+    color: inherit; 
+    text-decoration: none;
+  } 
+  
+  .category-list li:after {
+    overflow: hidden;
+    content: "10 recettes";
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 0;
+    width: 0;
+    opacity: 0;
+    white-space: nowrap;
+    transition: width 0.2s ease, opacity 0.1s ease;
+    /* pill */
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.1);
+    padding: 5px 0 2px;
+    border-radius: 4px;  
+    line-height: 1;
+    border: 1px solid rgba(0,0,0,0.04)
+    /**/
+  }
+  
+  .category-list li:hover {
+    position: relative;
+    z-index: 2;
+    opacity: 1;
+    padding: 20px;
+  }
+  
+  .category-list li:hover:after {
+    margin-left: 15px;
+    width: 82px;
+    opacity: 1;
+  }
+  
+  .category-list .affichertoutes {
+    background: #F6672E;
+  }
+  
+  .category-list .antillaise {
+    background-color: #009BD4;
+  }
+  
+  .category-list .orientale {
+    background-color: #9FC53A;
+  }
+  
+  .category-list .indienne {
+    background-color: #FFB200;
+  }
+  
+  .category-list .chinoise {
+    background-color: #8F5A9F;
+  }
+  
+  .category-list .autre{
+    background-color: #4EC9BE;
+  }
+
+  /**********Category List Design Ends ***********/

@@ -19,7 +19,7 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog", name="blog")
      */
-    public function index(RecetteRepository $repo)
+    public function index(RecetteRepository $repo) // Defining a Method to display the list of all Recipes
     {
 
         $repo = $this->getDoctrine()->getRepository(Recette::class);
@@ -49,7 +49,7 @@ class BlogController extends AbstractController
      * @Route("blog/new", name="blog_create")
     */
     
-    public function form(Recette $recette = null, Request $request, EntityManagerInterface $manager) 
+    public function form(Recette $recette = null, Request $request, EntityManagerInterface $manager) // Defining a Method to add or create a new recipe in the DB.
     {
 
         dump($request);
@@ -90,13 +90,19 @@ class BlogController extends AbstractController
         
     }
 
-    
+    /**
+     * @Route("/blog/category", name="list_category")
+     */
+    public function listCategory()
+    {
+        return $this->render('blog/category.html.twig');
+    }
 
     /**
      * @Route("/blog/{id}", name="blog_show")
     */
 
-     public function show(Recette $recette, Request $request, EntityManagerInterface $manager)
+     public function show(Recette $recette, Request $request, EntityManagerInterface $manager) // Defining a method to display the details of a Recipe
      {
          //$repo = $this->getDoctrine()->getRepository(Recette::class);
          
@@ -120,21 +126,15 @@ class BlogController extends AbstractController
          return $this->render('blog/show.html.twig', [
             'recette' => $recette,
             'commentForm' => $form->createView()
-
-            
-
         ]);
-
-
-
      }
 
-    /**
+    
 
+    /**
      * @Route("blog/{category}/categorie", name="blog_category")
      */
-   
-    public function oriental(CategoryRepository $repo, $category)
+    public function eachCategory(CategoryRepository $repo, $category)
     {
         // $repo = $this->getDoctrine()->getRepository(Recette::class);
 
@@ -146,13 +146,14 @@ class BlogController extends AbstractController
 
         dump($recettes);
 
-        return $this->render('base.html.twig', [
+        return $this->render('blog/categoryList.html.twig', [
             'controller_name' => 'BlogController',
             'category' => $categories
         ]);
     }
-
-     * @Route("apropos", name = "about")
+    
+    /**
+     * @Route("/apropos", name = "about")
      */
     public function about()
     {

@@ -15,40 +15,38 @@
     </button>      
 </h1>
 
-    
 
-
-
-    <table class="table table-bordered text-center bg-light effet-table">
-        <tr class="bg-dark text-white">
-            
-            {% for data in colonnes %}
-                {% if data !='id' %}
-
-                    <th scope="col" >{{ data }}</th>
-
-                {% endif %}
+    <div class="table-responsive">
+        <table class="table table-bordered text-center bg-light effet-table">
+            <tr class="bg-dark text-white">
                 
-            {% endfor %}
-            <th scope='col'>Category</th>
-            <th scope="col">Modification</th>
-            <th scope="col">Supprimer</th>
-        </tr>
+                {% for data in colonnes %}
+                    {% if data !='id' %}
 
-        {% for data in recettes %}
+                        <th scope="col" >{{ data }}</th>
 
-            <tr>
-                <td>{{ data.title}}</td>
-                <td><img src="{{ data.image }}" alt="{{ data.title }}" style="width: 150px;"></td>
-                <td>{{ data.content|raw }}</td>
-                <td>{{ data.createdAt|date("d/m/Y à H:i:s") }}</td>
-                <td>{{ data.category.title}}</td>
-                <td><a href="{{ path('admin_edit_recette', {'id': data.id }) }}" class="btn btndark"><i class="far fa-edit"></i></a></td>
-                <td><a href="{{ path('admin_delete_recette', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>
+                    {% endif %}
+                    
+                {% endfor %}
+                <th scope='col'>Category</th>
+                <th scope="col">Modification</th>
+                <th scope="col">Supprimer</th>
             </tr>
-        
-        {% endfor %} 
-    </table>
 
+            {% for data in recettes %}
+
+                <tr>
+                    <td>{{ data.title}}</td>
+                    <td><img src="{{ data.image }}" alt="{{ data.title }}" style="width: 150px;"></td>
+                    <td>{{ data.content|raw }}</td>
+                    <td>{{ data.createdAt|date("d/m/Y à H:i:s") }}</td>
+                    <td>{{ data.category.title}}</td>
+                    <td><a href="{{ path('admin_edit_recette', {'id': data.id }) }}" class="btn btndark"><i class="far fa-edit"></i></a></td>
+                    <td><a href="{{ path('admin_delete_recette', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>
+                </tr>
+            
+            {% endfor %} 
+        </table>
+    </div>
 
 {% endblock %}
