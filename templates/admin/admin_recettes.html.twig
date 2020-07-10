@@ -15,10 +15,9 @@
     </button>      
 </h1>
 
-    
 
-
-
+    <div class="table-responsive">
+        
     <table class="table table-bordered table-responsive text-center bg-white effet-table col md-6">
         <tr class="bg-dark ">
             
@@ -45,10 +44,23 @@
                 <td>{{ data.category.title}}</td>
                 <td><a href="{{ path('admin_edit_recette', {'id': data.id }) }}" class="btn btn-dark"><i class="far fa-edit "></i></a></td>
                 <td><a href="{{ path('admin_delete_recette', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt p-3 mb-2 bg-danger text-white"></i></a></td>
-            </tr>
-        
-        {% endfor %} 
-    </table>
 
+            </tr>
+
+            {% for data in recettes %}
+
+                <tr>
+                    <td>{{ data.title}}</td>
+                    <td><img src="{{ data.image }}" alt="{{ data.title }}" style="width: 150px;"></td>
+                    <td>{{ data.content|raw }}</td>
+                    <td>{{ data.createdAt|date("d/m/Y à H:i:s") }}</td>
+                    <td>{{ data.category.title}}</td>
+                    <td><a href="{{ path('admin_edit_recette', {'id': data.id }) }}" class="btn btndark"><i class="far fa-edit"></i></a></td>
+                    <td><a href="{{ path('admin_delete_recette', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>
+                </tr>
+            
+            {% endfor %} 
+        </table>
+    </div>
 
 {% endblock %}

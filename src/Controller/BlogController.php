@@ -22,7 +22,7 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog", name="blog")
      */
-    public function index(RecetteRepository $repo)
+    public function index(RecetteRepository $repo) // Defining a Method to display the list of all Recipes
     {
 
         $repo = $this->getDoctrine()->getRepository(Recette::class);
@@ -52,7 +52,7 @@ class BlogController extends AbstractController
      * @Route("blog/new", name="blog_create")
     */
     
-    public function form(Recette $recette = null, Request $request, EntityManagerInterface $manager) 
+    public function form(Recette $recette = null, Request $request, EntityManagerInterface $manager) // Defining a Method to add or create a new recipe in the DB.
     {
 
         dump($request);
@@ -94,6 +94,14 @@ class BlogController extends AbstractController
     }
 
     /**
+     * @Route("/blog/category", name="list_category")
+     */
+    public function listCategory()
+    {
+        return $this->render('blog/category.html.twig');
+    }
+      
+    /**
       * @Route("blog/contact", name="blog_contact")
       */
 
@@ -127,11 +135,12 @@ class BlogController extends AbstractController
  
       }
 
+
     /**
      * @Route("/blog/{id}", name="blog_show")
     */
 
-     public function show(Recette $recette, Request $request, EntityManagerInterface $manager)
+     public function show(Recette $recette, Request $request, EntityManagerInterface $manager) // Defining a method to display the details of a Recipe
      {
          //$repo = $this->getDoctrine()->getRepository(Recette::class);
          
@@ -155,21 +164,15 @@ class BlogController extends AbstractController
          return $this->render('blog/show.html.twig', [
             'recette' => $recette,
             'commentForm' => $form->createView()
-
-            
-
         ]);
-
-
-
      }
 
-    /**
+    
 
+    /**
      * @Route("blog/{category}/categorie", name="blog_category")
      */
-   
-    public function oriental(CategoryRepository $repo, $category)
+    public function eachCategory(CategoryRepository $repo, $category)
     {
         // $repo = $this->getDoctrine()->getRepository(Recette::class);
 https://github.com/O-Antonin/projetcodeuses/pull/25/conflict?name=templates%252Fbase.html.twig&ancestor_oid=e6483a2ef6d1e6bec8bbd1c420e838145442d8c9&base_oid=528318ff02cc0090370f179d1f55c133d9a17ec6&head_oid=8bff39e64486b68f051f0ca14a4c31e2cc541177
@@ -181,17 +184,15 @@ https://github.com/O-Antonin/projetcodeuses/pull/25/conflict?name=templates%252F
 
         dump($recettes);
 
-        return $this->render('base.html.twig', [
+        return $this->render('blog/categoryList.html.twig', [
             'controller_name' => 'BlogController',
             'category' => $categories
         ]);
     }
 
-
    
     /** 
      * @Route("/apropos", name="about")
-
      */
 
     public function about()

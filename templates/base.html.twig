@@ -12,10 +12,9 @@
         
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 
-           
-
             <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
-            <link rel="stylesheet" type="text/css" href="{{ asset ('css/style.css')}}">  
+
+            <link rel="stylesheet" type="text/css" href="{{ asset ('css/style.css')}}">
 
         {% endblock %}
     </head>
@@ -37,34 +36,18 @@
                 <li class="nav-item">
                   <a class="nav-link " href="{{ path('about') }}">A propos</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Recettes
-                  </a>
 
-                {# {% for cat in category %} #}
-                  <div class="dropdown-menu bgnoir" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ path('blog') }}">Afficher toutes</a>
-                    <a class="dropdown-item" href="{{ path('blog') }}">Plat Chinois</a>
-                    <a class="dropdown-item" href="{{ path('blog') }}">plat Antillais</a>
-                    {# <a class="dropdown-item" href="{{ path('oriental', {'category': cat.category}) }}">Recetttes Orientales</a> #}
-                    <a class="dropdown-item" href="{{ path('blog') }}">plat Indien</a>
-                    <a class="dropdown-item" href="{{ path('blog') }}">Autres</a>
-                {# {% endfor %}     #}
-
+                <li class="nav-item">
+                  <a class="nav-link " href="{{ path('list_category') }}">Catégories</a>
                 </li>
-              
-
-
+                
+                    
+                    {# <a class="dropdown-item" href="{{ path('blog_category', {'category': cat.category}) }}">Recetttes Orientales</a>  #}
+                                       
 
                 {% if app.user %}
 
-                <li>
-                <a class="nav-link" href="{{ path('blog_create') }}">Créer une Récette</a>
-                    
-                </li>
-
-                  </li>
+                  <li>
                     <a class="nav-link" href="{{ path('blog_create') }}">Créer une recette</a>
                   </li>
 
@@ -77,21 +60,13 @@
               {% endif %}
 
               </ul>
-              
-              <form class="form-inline my-2 my-lg-0">
-
-                
-                {% if not app.user %}
-
+      
+              {% if not app.user %}
 
                   
 
                   <button class="btn btn-light my-2 my-sm-0  mr-2 loginresponsive" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
-
-
-                  
-
-                  
+               
 
                   <button class="btn btn-light my-2 my-sm-0 mr-2 loginresponsive" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
 
@@ -117,8 +92,10 @@
         <section class="container-fluid my-container"> 
         {% block body %}
         
-<h2 class="display-4 text-center my-4 animate__animated animate__backInDown" style="animation-delay: 1.2s;"> Liste des Recettes Chinoises</h2>
-    
+
+
+
+            
     {# <div class="row d-flex justify-content-around ">
 
         {% for cat in category %}
@@ -150,9 +127,6 @@
             <div class="container ">
 
            <section class="section-footer">
-            
-           
-
         
                <img src="../images/li.png" />
                <img src="../images/oiseau.png" />
@@ -167,7 +141,6 @@
 
           </div>
 
-
         </footer>
 
         {% block javascripts %}
@@ -175,6 +148,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="{{ asset ('js/app.js')}}"></script>
 
         {% endblock %}
     </body>
