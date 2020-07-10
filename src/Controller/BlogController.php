@@ -152,8 +152,10 @@ class BlogController extends AbstractController
         ]);
     }
 
-     * @Route("apropos", name = "about")
-     */
+     /**
+      *  @Route("apropos", name = "about")
+      */ 
+   
     public function about()
     {
         

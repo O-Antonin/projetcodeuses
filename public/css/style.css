@@ -1,15 +1,15 @@
 .my-container{
     min-height: 85vh;
     margin: auto;
-    width: 900px;
+    /* width: 900px; */
     min-height: 300px;
     margin-bottom: 300px !important; 
     
 }
 
 .carousel-dimension {
-    width: 600px;
-    height: 367px;
+    /* width: 600px; */
+    /* height: 367px; */
     margin: auto;
     margin-top: 84px!important;
     padding: auto;
@@ -17,7 +17,7 @@
 }
 .img-fluid {
     margin: auto;
-    width: 900px;
+    /* width: 900px; */
     height: 300px;
     padding: auto;
     border: solid 3px white;
@@ -95,6 +95,24 @@ color: black!important;
     border-radius: 5px;
 }
 
+
+}
+.text-center{
+    color: white;
+    
+}
+.police{
+    font-family: fantasy;
+    color
+    
+}
+.col-md-12{
+    color: white;
+}
+
+
+
+  
 
 
 
