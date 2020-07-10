@@ -95,6 +95,8 @@ color: black!important;
     border-radius: 5px;
 }
 
+.bouttonmenu {
+ font-size: 2.8em;
 
 }
 .text-center{
@@ -112,7 +114,37 @@ color: black!important;
 
 
 
-  
+
+/* tablette */
+@media screen and (min-device-width: 501px) and (max-device-width: 800px) {
+
+    bgnoir {
+        padding: 30px!important;
+    }
+
+}
+
+
+/* mobile */
+@media screen and (min-device-width: 200px) and (max-device-width: 500px) {
+
+.nav-link {
+    padding-left: 370px!important;
+    font-size: 3em;}
+
+.dropdown-item {
+
+    font-size: 3em;  
+    padding-left: 299px!important;
+    background-color:#4f3930;
+} 
+
+.loginresponsive {
+
+    font-size: 2em;
+}
+
+}
 
 
 
