@@ -138,7 +138,7 @@ class BlogController extends AbstractController
 
     /**
      * @Route("/blog/{id}", name="blog_show")
-    */
+     */
 
      public function show(Recette $recette, Request $request, EntityManagerInterface $manager) // Defining a method to display the details of a Recipe
      {
