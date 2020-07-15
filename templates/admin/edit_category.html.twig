@@ -4,33 +4,30 @@
 
 {% block body %}
 
-<h1 class="display-4 text-center my-4">
-    {% if editMode %}         
-        BACKOFFICE | Modification du category  
+    <h1 class="display-4 text-center my-4">
+        {% if editMode %}         
+            BACKOFFICE | Modification du category  
 
-    {% else %}         
-        BACKOFFICE | Poster un nouvel category    
-        
-    {% endif %}
-</h1> 
-   
-
+        {% else %}         
+            BACKOFFICE | Poster un nouvel category    
+            
+        {% endif %}
+    </h1> 
+    
     {{ form_start(formEdit, {'attr':{'class': 'col-md-7 mx-auto'}}) }}
 
-    {{ form_row(formEdit.title, {'attr':{'placeholder': "Saisir le titre de l'category..."}}) }}
+        {{ form_row(formEdit.title, {'attr':{'placeholder': "Saisir le titre de la catégorie..."}}) }}
 
-    {{ form_row(formEdit.description, {'attr':{'placeholder': "Description","rows":10}}) }}
+        {{ form_row(formEdit.description, {'attr':{'placeholder': "Description","rows":10}}) }}
 
-    <button type="submit" class="btn btn-info">
-        {% if editMode %}            
-            Enregistrer les modifications         
-        {% else %}             
-            Ajouter le catégorie  
-        {% endif %}     
-    </button>
-
+        <button type="submit" class="btn btn-info">
+            {% if editMode %}            
+                Enregistrer les modifications         
+            {% else %}             
+                Ajouter la catégorie  
+            {% endif %}     
+        </button>
 
     {{ form_end(formEdit) }}
-
 
 {% endblock %}

@@ -24,6 +24,7 @@ class RegistrationType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Users::class,
+            'validation_groups' => ['registration'],
         ]);
     }
 }

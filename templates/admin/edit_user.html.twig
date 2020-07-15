@@ -4,35 +4,18 @@
 
 {% block body %}
 
-<h1 class="display-4 text-center my-4">
-    {% if editMode %}
-        BACKOFFICE | Modification du membres
-        
-    {% else %}   
-    BACKOFFICE | Ajouter un nouvel membre
-    
-    {% endif %}
-</h1>
+    <h1 class="display-4 text-center my-4"> Backoffice | Modification du membres </h1>
 
+    {{ form_start(formUser, {'attr' : {'class' : 'col-md-6 mx-auto'}} ) }}
 
-{{ form_start(formEdit, {'attr' : {'class' : 'col-md-6 mx-auto'}} ) }}
+        {{form_row(formUser.username, {'label' : "Nom du membre"}) }}
 
-    {{form_row(formEdit.username, {'label' : "Nom de membre"}) }}
+        {{ form_row(formUser.email) }}
 
-    {{ form_row(formEdit.email, {'attr' : {'placeholder': 'Adresse email'}}) }}
+        {{ form_row(formUser.roles, {'label' : "Role membre"}) }}
 
-    {{ form_row(formEdit.password, {'label' : 'Mot de passe', 'attr': {'placeholder': 'Mot de passe'}}) }}
+        <button type="submit" class="btn btn-dark">Modification du membre</button>
 
-
-    <button type="submit" class="btn btn-info">
-        {% if editMode %}            
-            Enregistrer les modifications         
-        {% else %}             
-            Ajouter l'article         
-        {% endif %}     
-    </button>
-
-
-{{ form_end(formEdit) }}
+    {{ form_end(formUser) }}
 
 {% endblock %}

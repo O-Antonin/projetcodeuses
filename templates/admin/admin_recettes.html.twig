@@ -4,48 +4,33 @@
 
 {% block body %}
 
-<h1 class="display-4 text-center my-4">Gestion des recettes <br>
-  
 
+    <h1 class="display-4 text-center my-4">Gestion des recettes</h1>
 
-    <button type="button" class="btn btn-warning btn-md mb-3 font-weight-bold font-italic" >
-
-        
-            <a href ="{{ path('admin_new_recette')}}">
-                Ajouter
-            </a>
-       
-    </button>      
-</h1>
-
-
-
-
-
+    <a href="{{ path('admin') }}" class="btn btn-dark btn-sm mb-1">Retour au BACKOFFICE</a>
+    <a href ="{{ path('admin_new_recette')}}"class="btn btn-dark btn-sm mb-1" >Ajouter la recette</a>      
+    
     <table class="table table-bordered table-responsive text-center bg-white text-dark effet-table col md-6">
         <tr class="bg-dark text-white ">
 
-  
-        
-    
-        
-
-            
             {% for data in colonnes %}
-                {% if data !='id' %}
-
-                    <th scope="col" >{{ data }}</th>
-
-                {% endif %}
-                
-            {% endfor %}
-            <th scope='col'>Categories</th>
-            <th scope="col">Modification</th>
-            <th scope="col">Supprimer</th>
-        </tr>
+              
 
 
-       
+                    {% if data !='id' %}
+
+                        <th scope="col" >{{ data }}</th>
+
+
+                    {% endif %}  
+
+                {% endfor %}
+
+                <th scope='col'>Categories</th>
+                <th scope="col">Modification</th>
+                <th scope="col">Supprimer</th>
+            </tr>
+
             {% for data in recettes %}
 
                 <tr>

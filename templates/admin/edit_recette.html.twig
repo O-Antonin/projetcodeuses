@@ -4,6 +4,7 @@
 
 {% block body %}
 
+
 <h1 class="display-4 text-center my-4 ">
     {% if editMode %}         
         BACKOFFICE | Modification du recette  
@@ -17,11 +18,11 @@
 
     {{ form_start(formEdit, {'attr':{'class': 'col-md-7 mx-auto'}}) }}
 
-    {{ form_row(formEdit.title, {'attr':{'placeholder': "Saisir le titre de l'recette..."}}) }}
+        {{ form_row(formEdit.title, {'attr':{'placeholder': "Saisir le titre de l'recette..."}}) }}
 
-    {{ form_row(formEdit.category) }}
+        {{ form_row(formEdit.category) }}
 
-    {{ form_row(formEdit.content, {'attr':{'placeholder': "Contenu le titre de l'recette...","rows":10}}) }}
+        {{ form_row(formEdit.content, {'attr':{'placeholder': "Contenu le titre de l'recette...","rows":10}}) }}
 
     {{ form_row(formEdit.imageFile, {'attr':{'placeholder': "Télécharger l'image..."}}) }}
 
@@ -34,7 +35,14 @@
     </button>
 
 
-    {{ form_end(formEdit) }}
+            <button type="submit" class="btn btn-info">
+                {% if editMode %}            
+                    Enregistrer les modifications         
+                {% else %}             
+                    Ajouter l'article         
+                {% endif %}     
+            </button>
 
+    {{ form_end(formEdit) }}
 
 {% endblock %}

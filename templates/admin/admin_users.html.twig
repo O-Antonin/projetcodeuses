@@ -4,7 +4,11 @@
 
 {% block body %}
 
-<h1 class="display-4 text-center my-4">Gestion des membres</h1>   
+    <h1 class="display-4 text-center my-4">Gestion des membres</h1>   
+
+
+    <a href="{{ path('admin') }}" class="btn btn-dark btn-sm mb-1">Retour au BACKOFFICE</a>
+    
 
 
 <div class="table-responsive">
@@ -13,30 +17,29 @@
         <tr class="bg-dark text-white ">
 
 
-            
-            {% for data in colonnes %}
-                {% if data !='id' %}
-
-                    <th scope="col" >{{ data }}</th>
-
-                {% endif %}
                 
-            {% endfor %}
-            <th scope="col ">Supprimer</th>
-        </tr>
+                {% for data in colonnes %}
 
-        {% for data in users %}
+                    {% if data !='id' and data != 'password' %}
+                        <th scope="col" >{{ data }}</th>
+                    {% endif %}
+                    
+                {% endfor %}
+                <th sople="col">Modification</th>
+                <th scope="col ">Supprimer</th>
+            </tr>
 
-            <tr class="text-black">
-                <td>{{ data.email}}</td>
-                <td>{{ data.password}}</td>
-                <td>{{ data.username}}</td>
-                <td>{{data.Roles[0]}}</td>
-                <td><a href="{{ path('admin_delete_user', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt btn btn-danger text-white"></i></a></td>
-            </tr> 
-        
-        {% endfor %} 
-    </table>
-</div>
+            {% for data in users %}
+
+                <tr class="text-black">
+                    <td>{{ data.email}}</td>
+                    <td>{{ data.username}}</td>
+                    <td>{{data.roles[0]}}</td>
+                    <td class="align-middle"><a href="{{ path('admin_edit_user', {'id': data.id}) }}" class="btn btn-dark text-white"><i class="fas fa-edit fa-1x"></i></a></td>
+                    <td><a href="{{ path('admin_delete_user', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt btn btn-danger text-white"></i></a></td>
+                </tr> 
+            
+            {% endfor %} 
+        </table>
 
 {% endblock %}
