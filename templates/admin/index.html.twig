@@ -4,20 +4,20 @@
 
 {% block body %}
 
-<div class="container">
+    <div class="container">
 
-    <h1 class="display-4 text-center my-4">Back Office</h1>
+        <h1 class="display-4 text-center my-4">Back Office</h1>
 
-    <p class="text-center text-white">Bienvenue sur votre backoffice</p>
+        <p class="text-center text-white">Bienvenue sur votre backoffice</p>
 
-    <a href="{{ path ('admin_recettes') }} " class="col-md-6 offset-md-3 btn btn-dark p-2 mb-3">GESTION  DES RECETTES</a>
+        <a href="{{ path ('admin_recettes') }} " class="col-md-6 offset-md-3 btn btn-dark p-2 mb-3">GESTION  DES RECETTES</a>
 
-    <a href="{{ path ('admin_users') }}" class="col-md-6 offset-md-3 btn btn-primary p-2 mb-3">GESTION  DES MEMBRES</a>
+        <a href="{{ path ('admin_users') }}" class="col-md-6 offset-md-3 btn btn-primary p-2 mb-3">GESTION  DES MEMBRES</a>
 
-    <a href="{{ path ('admin_categorys') }}" class="col-md-6 offset-md-3 btn btn-info p-2 mb-3">GESTION  DES CATEGEORIES</a>
+        <a href="{{ path ('admin_categorys') }}" class="col-md-6 offset-md-3 btn btn-info p-2 mb-3">GESTION  DES CATEGEORIES</a>
 
-    <a href="{{ path ('admin_comments') }}" class="col-md-6 offset-md-3 btn btn-warning p-2 mb-3">GESTION  DES COMMENTAIRES</a>
+        <a href="{{ path ('admin_comments') }}" class="col-md-6 offset-md-3 btn btn-warning p-2 mb-3">GESTION  DES COMMENTAIRES</a>
 
-</div>
+    </div>
 
 {% endblock %}

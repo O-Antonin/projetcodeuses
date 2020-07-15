@@ -4,40 +4,33 @@
 
 {% block body %}
 
-<h1 class="display-4 text-center my-4">Gestion des commentaires </h1>
+    <h1 class="display-4 text-center my-4">Gestion des commentaires </h1>
 
-<div class="table-responsive mt-5">
-    <table class="table text-black bg-white">
-        <thead class="thead-dark text-center">
-        <tr>
-            <th scope="col">Auteur</th>
-            <th scope="col">Contenu</th>
-            <th scope="col">Heure de Creation</th>
-            <th scope="col">Supprimer</th>
-        </tr>
-        </thead>
-        <tbody>
-    {% for comment in comments %}          
-        <tr>
-    
-            <td>{{ comment.author }} </td>
-            <td>{{ comment.content | raw }} </td>
-            <td>{{ comment.createdAt | date('d/m/ Y à H:i:s') }}</td>
-            <td><a href="{{ path('admin_delete_comment', { 'id': comment.id}) }}" class="text-dark"><i class="fas fa-trash-alt btn btn-danger text-white"></i></a></td>
-        </tr>
-    {% endfor %}    
-        </tbody>
-    </table>
-</div>                   
-             
+    <a href="{{ path('admin') }}" class="btn btn-dark btn-sm mb-1">Retour au BACKOFFICE</a>
 
+    <div class="table-responsive">
+        <table class="table table-bordered  text-center bg-white effet-table mt-2">
+            <tr class="bg-dark ">
+                {% for data in colonnes %}
 
+                    {% if data != 'id' %}
+                        <th>{{ data }}</th>
+                    {% endif %}
 
-
-                
-           
-    
-         
-
+                {% endfor %}
+                <th scope="col">Supprimer</th>
+            </tr>
+        
+            {% for comment in comments %}          
+                <tr>
+            
+                    <td>{{ comment.author }} </td>
+                    <td>{{ comment.content | raw }} </td>
+                    <td>{{ comment.createdAt | date('d/m/ Y à H:i:s') }}</td>
+                    <td><a href="{{ path('admin_delete_comment', { 'id': comment.id}) }}" class="text-dark"><i class="fas fa-trash-alt btn btn-danger text-white"></i></a></td>
+                </tr>
+            {% endfor %}    
+        </table>
+    </div>                   
 
 {% endblock %}

@@ -3,11 +3,11 @@
 {% block body %}
 
     <h1 class="display-4 text-center my-4">
-    {% if editMode %}
-              Modification de la Recette
-    {% else %}          
-              Créer une nouvelle Recette
-    {% endif %}  
+        {% if editMode %}
+                Modification de la Recette
+        {% else %}          
+                Créer une nouvelle Recette
+        {% endif %}  
     </h1>
 
     {# {{ form(formRecette) }}  'form' is a predefined Twig Method, and 'formRecette' was called out in BlogController line 115 #}
@@ -33,8 +33,7 @@
             Enregistrer
         {% endif %}
         </button>
-
-        
+   
     {{form_end(formRecette) }}
 
 {% endblock %}

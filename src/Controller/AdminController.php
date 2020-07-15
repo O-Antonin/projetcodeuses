@@ -8,6 +8,7 @@ use App\Entity\Recette;
 use App\Entity\Category;
 use App\Form\RecetteType;
 use App\Form\CategoryType;
+use App\Form\AdminUserType;
 use App\Form\RegistrationType;
 use App\Repository\UsersRepository;
 use App\Repository\CommentRepository;
@@ -97,6 +98,7 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('admin_recettes');     
     }
 
+
     /**
      * @Route("/admin/users", name="admin_users")
      */
@@ -119,6 +121,37 @@ class AdminController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/admin/{id}/edit-user", name="admin_edit_user")
+     */
+   
+    public function editUser(Users $users, EntityManagerInterface $manager, Request $request )
+    {
+        dump($users);
+
+        $form = $this->createForm(AdminUserType::class, $users);
+
+        $form->handleRequest($request);
+        dump($request);
+
+        if($form->isSubmitted() && $form->isValid()) 
+        {   
+            $manager->persist($users);  
+            $manager->flush(); 
+
+            $this->addFlash('success', 'Les modifications ont bien été enregistrées !');
+
+            return $this->redirectToRoute('admin_users');
+        }
+
+        return $this->render('admin/edit_user.html.twig', [
+            'formUser' => $form->createView(),
+            'editMode' => $users->getId() !== null
+        ]);
+
+
+
+    }
     /**
      * @Route("/admin/{id}/delete-user", name="admin_delete_user")
      */
