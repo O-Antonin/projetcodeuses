@@ -4,47 +4,50 @@
 
 {% block body %}
 
-    <h1 class="display-4 text-center my-4">Gestion des categories <a href="{{ path('admin_new_category') }}" class="btn btn-secondary btn-sm">Nouvelle catégorie</a></h1>
+    <h1 class="display-4 text-center my-4">Gestion des categories</h1>
+
+    <a href="{{ path('admin') }}" class="btn btn-dark btn-sm mb-2">Retour au BACKOFFICE</a>
+    <a href="{{ path('admin_new_category') }}" class="btn btn-dark btn-sm mb-2">Nouvelle catégorie</a>
 
     {% for message in app.flashes('success') %}
-    <div class="col-md-5 mt-4 mx-auto alert alert-success text-center">
-        {{ message }}
-    </div>
+        <div class="col-md-5 mt-4 mx-auto alert alert-success text-center">
+            {{ message }}
+        </div>
     {% endfor %}
 
     {% for message in app.flashes('danger') %}
-    <div class="col-md-8 mt-4 mx-auto alert alert-danger text-center">
-        {{ message }}
-    </div>
+        <div class="col-md-8 mt-4 mx-auto alert alert-danger text-center">
+            {{ message }}
+        </div>
     {% endfor %}
 
-    <a href="{{ path('admin') }}" class="btn btn-dark btn-sm mb-2">Retour au BACKOFFICE</a>
+    <div class="table-responsive">
+        <table class="table table-bordered text-center text-black bg-white">
+            <tr class="bg-dark">
+                {% for data in colonnes %}
 
-    <table class="table table-bordered text-center text-black bg-white">
+                    {% if data != 'id' %}
+                        <th>{{ data }}</th>
+                    {% endif %}
 
-        <tr>
-        {% for data in colonnes %}
-
-            {% if data != 'id' %}
-                <th>{{ data }}</th>
-            {% endif %}
-
-        {% endfor %}
-        </tr>
-
-        {% for data in categorys %}
-
-            <tr>
-                <td class="align-middle">{{ data.title }}</td>
-
-                <td class="align-middle">{{ data.description }}</td>
-
-                <td class="align-middle"><a href="{{ path('admin_edit_category', {'id': data.id }) }}" class="btn btn-dark text-white"><i class="fas fa-edit fa-1x"></i></a></td>
-
-                <td class="align-middle"><a href="{{ path('admin_delete_category', {'id': data.id }) }}" class="btn btn-danger text-white" onclick="return(confirm('En êtes vous certain ?'))"><i class="fas fa-trash-alt fa-1x"></i></a></td>
+                {% endfor %}
+            <th scope="col">Modification</th>
+            <th scope="col">Supprimer</th>
             </tr>
-        {% endfor %}
 
-    </table>
+            {% for data in categorys %}
 
+                <tr>
+                    <td class="align-middle">{{ data.title }}</td>
+
+                    <td class="align-middle">{{ data.description }}</td>
+
+                    <td class="align-middle"><a href="{{ path('admin_edit_category', {'id': data.id }) }}" class="btn btn-dark text-white"><i class="fas fa-edit fa-1x"></i></a></td>
+
+                    <td class="align-middle"><a href="{{ path('admin_delete_category', {'id': data.id }) }}" class="btn btn-danger text-white" onclick="return(confirm('En êtes vous certain ?'))"><i class="fas fa-trash-alt fa-1x"></i></a></td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
 {% endblock %}

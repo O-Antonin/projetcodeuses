@@ -1,155 +1,107 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Bienvenu sur le Blog des Recettes {% endblock %}</title>
-        {% block stylesheets %}
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bienvenu sur le Blog des Recettes {% endblock %}</title>
+      {% block stylesheets %}
 
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 
-            <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
 
-            <link rel="stylesheet" type="text/css" href="{{ asset ('css/style.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/style.css')}}">
 
         {% endblock %}
-    </head>
-    <body>
+  </head>
+  <body>
 
-
-  
-  
-
-        <nav class="navbar navbar-expand-lg navbar-light bgnoir">
-
-          <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded police-menu bouttonmenu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto linkcolor">
-                <li class="nav-item active">
-                  <a class="nav-link" href="{{ path('home') }}">Accueil</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="{{ path('about') }}">A propos</a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link " href="{{ path('list_category') }}">Catégories</a>
-                </li>
-                
-                    
-                    {# <a class="dropdown-item" href="{{ path('blog_category', {'category': cat.category}) }}">Recetttes Orientales</a>  #}
-                                       
-
-                {% if app.user %}
-
-                  <li>
-                    <a class="nav-link" href="{{ path('blog_create') }}">Créer une recette</a>
-                  </li>
-
-                {% endif %} 
-                
-                {% if is_granted('ROLE_ADMIN') %}
-                  <li class="nav-item active">
-                      <a class="nav-link" href="{{ path('admin') }}">BACKOFFICE</a>
-                  </li>
-              {% endif %}
-
-              </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bgnoir">
       
-              {% if not app.user %}
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded police-menu bouttonmenu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
 
-                  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto linkcolor">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ path('home') }}">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{{ path('about') }}">A propos</a>
+            </li>
 
-                  <button class="btn btn-light my-2 my-sm-0  mr-2 loginresponsive" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
-               
+            <li class="nav-item">
+              <a class="nav-link " href="{{ path('list_category') }}">Catégories</a>
+            </li>
 
-                  <button class="btn btn-light my-2 my-sm-0 mr-2 loginresponsive" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
+            <li class="nav-item">
+              <a class="nav-link " href="{{ path('blog_contact') }}">Contact</a>
+            </li> 
 
-                  
+            {% if app.user %}
 
-                {% else %}
-                
-                  
+              <li>
+                <a class="nav-link" href="{{ path('blog_create') }}">Créer une recette</a>
+              </li>
 
-                  <button class="btn btn-light my-2 my-sm-0 " type="submit">  <a href="{{ path('security_logout')}}">Déconnexion</a></button>
-
-                  
-
-                {% endif %} 
-
-                
-              </form>
-
-            </div>
-        </nav>
-      
-
-        <section class="container-fluid my-container"> 
-        {% block body %}
-        
-
-
-
+            {% endif %} 
             
-    {# <div class="row d-flex justify-content-around ">
+            {% if is_granted('ROLE_ADMIN') %}
+              <li class="nav-item active">
+                  <a class="nav-link" href="{{ path('admin') }}">BACKOFFICE</a>
+              </li>
+            {% endif %}
 
-        {% for cat in category %}
+          </ul>
+  
+          {% if not app.user %}
 
-            <div class="card mb-4 text-center border border-dark rounded-lg animate__animated animate__zoomIn" style="width: 18rem;">
-                <img src="{{ cat.image }}" class="card-img-top" alt="{{ cat.title }}">
-                <div class="card-body">
-                    <h3 class="card-title"> {{ cat.title }} </h3> <!-- to dynamically change the title name for each cards -->
-                    
-                    <p class="card-text"> {{ cat.content|slice(0, 100)|raw }}... </p> <!-- 'raw' or 'striptags'to remove the <p> tags from the sides on the contents-->
-                    <hr>
-                    <p> Posté le {{ cat.createdAt|date("d/m/Y") }} à {{ cat.createdAt|date("H:i:s") }} </p>
-                    <a href="{{ path('blog_show', {'id':cat.id}) }}" class="btn btn-dark">Voir le détail</a>
-                </div>
-            </div>
+            <button class="btn btn-light my-2 my-sm-0  mr-2 loginresponsive" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
 
-        {% endfor %}
+            <button class="btn btn-light my-2 my-sm-0 mr-2 loginresponsive" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
 
-    </div> #}
-
-        {% endblock %}
-        </section>
+            {% else %}
       
-        
+              <button class="btn btn-light my-2 my-sm-0 " type="submit">  <a href="{{ path('security_logout')}}">Déconnexion</a></button>
 
-        <footer class="bgnoir text-white text-center py-3 fixed-bottom"> 
-                <p class="police">Nous rejoindre</p> 
+          {% endif %}     
+        </div>
+    </nav>
+  
+    <section class="container-fluid my-container"> 
+      {% block body %}      
 
-            <div class="container ">
-
-           <section class="section-footer">
-        
-               <img src="../images/li.png" />
-               <img src="../images/oiseau.png" />
-                <img src="../images/snap.png" />
-          </section>
+      {% endblock %}
+    </section>
+      
+    <footer class="bgnoir text-white text-center py-3 "> 
+      <p class="police">Nous rejoindre</p> 
+      <div class="container ">
+        <section class="section-footer">
+          <img src="../images/li.png" />
+          <img src="../images/oiseau.png" />
+          <img src="../images/snap.png" />
+        </section>
           
-              <p>
+        <p>
         4 rue de la gastronomie <br>
         75000 Paris<br>
         &copy;  CIAO 2020
-             </p>
+        </p>
 
-          </div>
+      </div>
+    </footer>
 
-        </footer>
-
-        {% block javascripts %}
+    {% block javascripts %}
         
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script src="{{ asset ('js/app.js')}}"></script>
 
-        {% endblock %}
-    </body>
+    {% endblock %}
+  </body>
 </html>

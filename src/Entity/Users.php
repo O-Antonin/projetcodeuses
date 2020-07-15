@@ -31,13 +31,13 @@ class Users implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="8", minMessage = "Votre mot de passe doit contenir 8 caractères minimum")
-     * @Assert\EqualTo(propertyPath="confirm_password", message="Les mots de passe ne correspondent pas")
+     * @Assert\Length(min="8", minMessage = "Votre mot de passe doit contenir 8 caractères minimum", groups={"registration"})
+     * @Assert\EqualTo(propertyPath="confirm_password", message="Les mots de passe ne correspondent pas", groups={"registration"})
      */
     private $password;
 
     /**
-     * @Assert\EqualTo(propertyPath="password", message="Les mots de passe ne correspondent pas")
+     * @Assert\EqualTo(propertyPath="password", message="Les mots de passe ne correspondent pas", groups={"registration"})
      */
     public $confirm_password;
 

@@ -48,9 +48,9 @@
 body{
     /* background:#B9C1C0; */
     /* background:url(https://previews.123rf.com/images/ivandzyuba/ivandzyuba1608/ivandzyuba160800014/61631400-arri%C3%A8re-plan-culinaire-des-ustensiles-de-cuisine.jpg) !important; */
-    background: url(../images/salad.jpg) !important;
+    background: url(../images/salad.jpg);
     background-size: cover;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;  
 
 }
 
@@ -202,15 +202,23 @@ color: black!important;
     color: white;
     
 }
-.police{
+.police {
     font-family: fantasy;
-    color
-    
+    color: white;
 }
+
 .col-md-12{
     color: white;
 }
 
+
+/*******Style contact*********/
+
+.my-bgcolor{
+
+  background-color: black;
+
+}
 
 
 
@@ -227,23 +235,26 @@ color: black!important;
 /* mobile */
 @media screen and (min-device-width: 200px) and (max-device-width: 500px) {
 
-.nav-link {
-    padding-left: 370px!important;
-    font-size: 3em;}
+  .nav-link {
+      padding-left: 370px!important;
+      font-size: 3em;
+    }
 
-.dropdown-item {
+  .dropdown-item {
 
-    font-size: 3em;  
-    padding-left: 299px!important;
-    background-color:#4f3930;
-} 
+      font-size: 3em;  
+      padding-left: 299px!important;
+      background-color:#4f3930;
+  } 
 
-.loginresponsive {
+  .loginresponsive {
 
-    font-size: 2em;
+      font-size: 2em;
+  }
+
 }
 
-}
+
 
 
 
