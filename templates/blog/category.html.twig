@@ -6,14 +6,35 @@
 
         <h1 class="display-4 text-center my-4 animate__animated animate__backInDown" style="animate-delay: 1.2s;"> Liste des catégories de recettes</h1>
 
-    
-        <ul class="category-list"> 
-            <li class="affichertoutes"><a href="{{ path('blog') }}">Afficher Toutes</a></li>
-            <li class="antillaise">Recettes Antillaise</li>
-            <li class="orientale">Recettes Orientales</li>
-            <li class="indienne">Recettes Indiennes</li>
-            <li class="chinoise">Recettes Chinoises</li>
-            <li class="autre">Autres</li>
+            
+        <ul class="category-list d-md-flex mx-auto"> 
+
+            <li><a href="{{ path('blog') }}">
+                <div class="hotsmoke">
+                    <div class="smoke"></div>
+                    <div class="smoke"></div>
+                    <div class="smoke"></div>
+                    <div class="smoke"></div>
+                </div>
+                    <img src="../images/bowl1.png" style="width:100px;" alt="">Afficher toutes</a>
+            </li>
+            
+
+            {% for data in category %}
+                
+            <li><a href="{{ path('blog_category', {'cat': data.title}) }}">
+                
+                <div class="hotsmoke">
+                    <div class="smoke"></div>
+                    <div class="smoke"></div>
+                    <div class="smoke"></div>
+                    <div class="smoke"></div>
+                </div>
+                    <img src="../images/bowl1.png" style="width:100px;" alt="">{{ data.title }}</a>
+            </li>
+                                
+            {% endfor %}
+           
         </ul>
 
 

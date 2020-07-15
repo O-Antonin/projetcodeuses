@@ -34,6 +34,8 @@ class Category
      */
     private $recettes;
 
+    
+
     public function __construct()
     {
         $this->recettes = new ArrayCollection();
@@ -98,4 +100,6 @@ class Category
 
         return $this;
     }
+
+   
 }
