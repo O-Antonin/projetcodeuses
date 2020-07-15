@@ -10,9 +10,9 @@
     {% endif %}  
     </h1>
 
-    {# {{ form(formRecette) }}  'form' is a predefined Twig Method, and 'formRecette' comes from BlogController line 115 #}
+    {# {{ form(formRecette) }}  'form' is a predefined Twig Method, and 'formRecette' was called out in BlogController line 115 #}
 
-    {# form_start() fonction de TWIG permettant de commencer le formulaire, de générer la balise <form> ouvrante, Symfony intègre automatiquement l'attribut 'method="post"' #}{# form_end() fonction de TWIG permettant de terminer le formulaire, de générer la balise </form> fermante #}     {# form_row() fonction TWIG qui permet d'afficher les champs du formulaire 1 par 1 #}{# Le bouton submit est codé en dur puisque le formulaire servira à la fois et à insérer mais aussi à modifier #}{# SI on crée la bouton avec la fonction add() dans le controller, il sera difficile de modifier son lable (modifier ou supprimer) #}
+    {# Profs explanation => form_start() fonction de TWIG permettant de commencer le formulaire, de générer la balise <form> ouvrante, Symfony intègre automatiquement l'attribut 'method="post"' #}{# form_end() fonction de TWIG permettant de terminer le formulaire, de générer la balise </form> fermante #}     {# form_row() fonction TWIG qui permet d'afficher les champs du formulaire 1 par 1 #}{# Le bouton submit est codé en dur puisque le formulaire servira à la fois et à insérer mais aussi à modifier #}{# SI on crée la bouton avec la fonction add() dans le controller, il sera difficile de modifier son lable (modifier ou supprimer) #}
     
     
     {{form_start(formRecette, {'attr': {'class': 'col-md-7 mx-auto style-formulaire'}} ) }}
@@ -23,7 +23,7 @@
 
         {{ form_row(formRecette.content, {'attr': {'placeholder': "Contenu de la recette", "rows": 10}}) }}
 
-        {{ form_row(formRecette.image, {'attr': {'placeholder': "Saisir l'URL de l'image..."}}) }}
+        {{ form_row(formRecette.imageFile, {'attr': {'placeholder': "Télécharger l'image..."}}) }}
 
         <button type="submit" class="btn btn-secondary">
         

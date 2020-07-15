@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<h2 class="display-4 text-center my-4 animate__animated animate__backInDown" style="animation-delay: 1.2s;"> Liste des recettes </h2>
+<h2 class="display-4 text-center my-4 animate__animated animate__backInDown" style="animate-delay: 1.2s;"> Toutes les Recettes </h2>
     
 <div class="container">
 
@@ -12,10 +12,16 @@
 
         {% for data in recettes %}
 
-            <div class="card mb-4 text-center border border-dark rounded-lg animate__animated animate__zoomIn" style="width: 18rem;">
-                <img src="{{ data.image }}" class="card-img-top" alt="{{ data.title }}">
+
+            
+                
+
+            
+            <div class="card mb-4 text-center border border-dark rounded-lg animate__animated animate__zoomIn image" style="width: 18rem;">
+                <img src="{{ asset('images/recettesImages/' ~ data.image ) }}" class="card-img-top" alt="{{ data.title }}">
+
                 <div class="card-body">
-                    <h3 class="card-title"> {{ data.title }} </h3> <!-- to dynamically change the title name for each cards -->
+                    <h3 class="card-title name"> {{ data.title }} </h3> <!-- to dynamically change the title name for each cards -->
                     
                     <p class="card-text"> {{ data.content|slice(0, 100)|raw }}... </p> <!-- 'raw' or 'striptags'to remove the <p> tags from the sides on the contents-->
                     <hr>
