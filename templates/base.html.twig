@@ -20,7 +20,57 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bgnoir">
+
+  
+  
+
+        <nav class="navbar navbar-expand-lg navbar-light bgnoir">
+
+          <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded police-menu bouttonmenu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto linkcolor">
+               <img src="../images/ciablog.png"  class= "logo mr-1" alt="" />
+                <li class="nav-item active py-3">
+                  <a class="nav-link" href="{{ path('home') }}">Accueil</a>
+                </li>
+                <li class="nav-item py-3">
+                  <a class="nav-link " href="{{ path('about') }}">A propos</a>
+                </li>
+
+               
+
+                <li class="nav-item">
+                  <a class="nav-link " href="{{ path('list_category') }}">Recettes</a>
+                </li>
+                
+                    
+                   
+                                       
+
+                {% if app.user %}
+
+                <li class="py-3">
+                <a class="nav-link" href="{{ path('blog_create') }}">Créer une Récette</a>
+                    
+                </li>
+
+                  
+                
+                  
+
+                 
+
+                {% endif %} 
+                
+                {% if is_granted('ROLE_ADMIN') %}
+                  <li class="nav-item active py-3">
+                      <a class="nav-link" href="{{ path('admin') }}">BACKOFFICE</a>
+                  </li>
+              {% endif %}
+
+              </ul>
+
       
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded police-menu bouttonmenu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
 
@@ -65,7 +115,9 @@
 
             {% else %}
       
+
               <button class="btn btn-light my-2 my-sm-0 " type="submit">  <a href="{{ path('security_logout')}}">Déconnexion</a></button>
+
 
           {% endif %}     
         </div>
@@ -74,17 +126,26 @@
     <section class="container-fluid my-container"> 
       {% block body %}      
 
+
       {% endblock %}
     </section>
       
     <footer class="bgnoir text-white text-center py-3 "> 
       <p class="police">Nous rejoindre</p> 
       <div class="container ">
-        <section class="section-footer">
-          <img src="../images/li.png" />
-          <img src="../images/oiseau.png" />
-          <img src="../images/snap.png" />
-        </section>
+
+           <section class="section-footer">
+
+            
+   
+
+
+        
+               <img src="../images/pinterst.png" />
+               <img src="../images/oiseau.png" />
+                <img src="../images/snap.png" />
+          </section>
+
           
         <p>
         4 rue de la gastronomie <br>
