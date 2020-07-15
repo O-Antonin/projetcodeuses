@@ -43,6 +43,7 @@
 }
 .card-text{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
 }
 .text-black{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -109,7 +110,8 @@ color: black!important;
     
 }
 .col-md-12{
-    color: white;
+    color: black;
+    background: white;
 }
 
 
@@ -147,4 +149,6 @@ color: black!important;
 }
 
 
-
+.logo{
+    width: 70px;
+}

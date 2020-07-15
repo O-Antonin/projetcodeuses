@@ -6,7 +6,7 @@
 
 <h1 class="display-4 text-center my-4">Gestion des recettes <br>
   
-    <button type="button" class="btn btn-dark " >
+    <button type="button" class="btn btn-dark   " >
         
             <a href ="{{ path('admin_new_recette')}}">
                 ajouter
@@ -19,8 +19,8 @@
 
 
 
-    <table class="table table-bordered table-responsive text-center bg-white effet-table col md-6">
-        <tr class="bg-dark ">
+    <table class="table table-bordered table-responsive text-center bg-white text-dark effet-table col md-6">
+        <tr class="bg-dark text-white ">
             
             {% for data in colonnes %}
                 {% if data !='id' %}
@@ -44,7 +44,7 @@
                 <td>{{ data.createdAt|date("d/m/Y à H:i:s") }}</td>
                 <td>{{ data.category.title}}</td>
                 <td><a href="{{ path('admin_edit_recette', {'id': data.id }) }}" class="btn btn-dark"><i class="far fa-edit "></i></a></td>
-                <td><a href="{{ path('admin_delete_recette', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt p-3 mb-2 bg-danger text-white"></i></a></td>
+                <td><a href="{{ path('admin_delete_recette', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt p-3 mb-2 bg-danger"></i></a></td>
             </tr>
         
         {% endfor %} 
