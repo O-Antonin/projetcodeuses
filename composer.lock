@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e27c65a132e329fb589bf3a4c410cd5",
+    "content-hash": "2546fbcabb9163d40cb711d31ee9f401",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -7745,16 +7745,16 @@
         },
         {
             "name": "vich/uploader-bundle",
-            "version": "1.14.0",
+            "version": "1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dustin10/VichUploaderBundle.git",
-                "reference": "8e9b4402a959983fd7effddae1dd81d587687d96"
+                "reference": "07658fb47429d7e108fa43d8c74ca8cd7edaa0d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/8e9b4402a959983fd7effddae1dd81d587687d96",
-                "reference": "8e9b4402a959983fd7effddae1dd81d587687d96",
+                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/07658fb47429d7e108fa43d8c74ca8cd7edaa0d9",
+                "reference": "07658fb47429d7e108fa43d8c74ca8cd7edaa0d9",
                 "shasum": ""
             },
             "require": {
@@ -7840,7 +7840,7 @@
                 "file uploads",
                 "upload"
             ],
-            "time": "2020-06-12T08:48:15+00:00"
+            "time": "2020-07-09T07:29:07+00:00"
         },
         {
             "name": "webimpress/safe-writer",
