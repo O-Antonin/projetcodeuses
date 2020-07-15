@@ -329,9 +329,6 @@ color: black!important;
     
     
 }
-.col-md-12{
-    color: white;
-}
 
 
 
@@ -339,9 +336,8 @@ color: black!important;
 /* tablette */
 @media screen and (min-device-width: 501px) and (max-device-width: 800px) {
 
-    bgnoir {
-        padding: 30px!important;
-    }
+     
+  
     .category-list{
       direction: rtl;
       display: block;
