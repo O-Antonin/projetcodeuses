@@ -22,7 +22,7 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog", name="blog")
      */
-    public function index(RecetteRepository $repo)
+    public function index(RecetteRepository $repo) // Defining a Method to display the list of all Recipes
     {
 
         $repo = $this->getDoctrine()->getRepository(Recette::class);
@@ -52,7 +52,7 @@ class BlogController extends AbstractController
      * @Route("blog/new", name="blog_create")
     */
     
-    public function form(Recette $recette = null, Request $request, EntityManagerInterface $manager) 
+    public function form(Recette $recette = null, Request $request, EntityManagerInterface $manager) // Defining a Method to add or create a new recipe in the DB.
     {
 
         dump($request);
@@ -94,6 +94,20 @@ class BlogController extends AbstractController
     }
 
     /**
+     * @Route("/blog/category", name="list_category")
+     */
+    public function listCategory(CategoryRepository $repo)
+    {
+        $category = $repo->findAll();
+
+        dump($category);
+
+        return $this->render('blog/category.html.twig', [
+            'category' => $category
+        ]);
+    }
+      
+    /**
       * @Route("blog/contact", name="blog_contact")
       */
 
@@ -127,11 +141,12 @@ class BlogController extends AbstractController
  
       }
 
+
     /**
      * @Route("/blog/{id}", name="blog_show")
-    */
+     */
 
-     public function show(Recette $recette, Request $request, EntityManagerInterface $manager)
+     public function show(Recette $recette, Request $request, EntityManagerInterface $manager) // Defining a method to display the details of a Recipe
      {
          //$repo = $this->getDoctrine()->getRepository(Recette::class);
          
@@ -149,49 +164,46 @@ class BlogController extends AbstractController
             return $this->redirectToRoute('blog_show', [ 'id' => $recette->getId()
             ]); }
          
-         
 
-
-         return $this->render('blog/show.html.twig', [
-            'recette' => $recette,
+         return $this->render('blog/show.html.twig', [  //Method "Render" has 2 parameters => "'blog/show.html.twig' (=> template Html) & 'Rceette'
+            'recette' => $recette,                      // Called in Line 6 of Show.html.twig
             'commentForm' => $form->createView()
-
-            
-
         ]);
-
-
-
      }
 
-    /**
+    
 
-     * @Route("blog/{category}/categorie", name="blog_category")
+    /**
+     * @Route("blog/{cat}/categorie", name="blog_category")
      */
-   
-    public function oriental(CategoryRepository $repo, $category)
+    public function eachCategory(CategoryRepository $repo, $cat) // Example: $cat = Autre recette
     {
         // $repo = $this->getDoctrine()->getRepository(Recette::class);
-https://github.com/O-Antonin/projetcodeuses/pull/25/conflict?name=templates%252Fbase.html.twig&ancestor_oid=e6483a2ef6d1e6bec8bbd1c420e838145442d8c9&base_oid=528318ff02cc0090370f179d1f55c133d9a17ec6&head_oid=8bff39e64486b68f051f0ca14a4c31e2cc541177
-        $categories = $repo->findOneBy([
-            'title' => $category
+https://github.com/O-Antonin/projetcodeuses/pull/25/conflict?namename=templates%252Fbase.html.twig&ancestor_oid=e6483a2ef6d1e6bec8bbd1c420e838145442d8c9&base_oid=528318ff02cc0090370f179d1f55c133d9a17ec6&head_oid=8bff39e64486b68f051f0ca14a4c31e2cc541177
+
+        $description = $repo->findBy([
+            'title' => $cat
         ]);
 
-        $recettes = $categories->getRecettes();
+        $category = $repo->findOneBy([
+            'title' => $cat
+        ]);
+
+        $recettes = $category->getRecettes();
 
         dump($recettes);
+        dump($description);
 
-        return $this->render('base.html.twig', [
-            'controller_name' => 'BlogController',
-            'category' => $categories
+
+        return $this->render('blog/categoryList.html.twig', [
+            'recettesByCategory' => $recettes,
+            'description' => $description
         ]);
     }
-
 
    
     /** 
      * @Route("/apropos", name="about")
-
      */
 
     public function about()
@@ -200,13 +212,10 @@ https://github.com/O-Antonin/projetcodeuses/pull/25/conflict?name=templates%252F
         return $this->render('blog/about.html.twig',[
             'title'=> 'Notre blog cuisine'
         ]);
-
-
-    
+   
       
     }
 
-     
 
  
 }

@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class RecetteType extends AbstractType
 {
@@ -19,7 +20,7 @@ class RecetteType extends AbstractType
                 'class' => Category::class, 
                 'choice_label' => 'title'
             ])
-            ->add('image')
+            ->add('imageFile', FileType::class,['required' => false])
             ->add('content')
             
         ;
