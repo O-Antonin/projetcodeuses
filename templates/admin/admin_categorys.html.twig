@@ -4,10 +4,10 @@
 
 {% block body %}
 
-    <h1 class="display-4 text-center my-4">Gestion des categories <a href="{{ path('admin_new_category') }}" class="btn btn-secondary btn-sm">Nouvelle catégorie</a></h1>
+    <h1 class="display-4 text-center my-4">Gestion des categories <a href="{{ path('admin_new_category') }}" class="btn btn-warning btn-sm">Nouvelle catégorie</a></h1>
 
     {% for message in app.flashes('success') %}
-    <div class="col-md-5 mt-4 mx-auto alert alert-success text-center">
+    <div class="col-md-5 mt-4 mx-auto alert alert-success text-center ">
         {{ message }}
     </div>
     {% endfor %}
@@ -20,9 +20,10 @@
 
     <a href="{{ path('admin') }}" class="btn btn-dark btn-sm mb-2">Retour au BACKOFFICE</a>
 
-    <table class="table table-bordered text-center text-black bg-white">
+    <table class="table table-bordered  table-responsive text-center text-dark bg-light effet-table col md-6">
+    
 
-        <tr>
+        <tr class= "bg-dark text-white">
         {% for data in colonnes %}
 
             {% if data != 'id' %}
@@ -34,10 +35,10 @@
 
         {% for data in categorys %}
 
-            <tr>
+            <tr >
                 <td class="align-middle">{{ data.title }}</td>
 
-                <td class="align-middle">{{ data.description }}</td>
+                <td class="align-middle ">{{ data.description }}</td>
 
                 <td class="align-middle"><a href="{{ path('admin_edit_category', {'id': data.id }) }}" class="btn btn-dark text-white"><i class="fas fa-edit fa-1x"></i></a></td>
 

@@ -6,7 +6,10 @@
 
 <h1 class="display-4 text-center my-4">Gestion des recettes <br>
   
+
+
     <button type="button" class="btn btn-warning btn-md mb-3 font-weight-bold font-italic" >
+
         
             <a href ="{{ path('admin_new_recette')}}">
                 Ajouter
@@ -16,10 +19,17 @@
 </h1>
 
 
-    <div class="container-fluid">
+
+
+
+    <table class="table table-bordered table-responsive text-center bg-white text-dark effet-table col md-6">
+        <tr class="bg-dark text-white ">
+
+  
         
-    <table class="table table-bordered table-responsive text-center text-dark bg-light effet-table">
-        <tr class="bg-dark text-white">
+    
+        
+
             
             {% for data in colonnes %}
                 {% if data !='id' %}
@@ -34,6 +44,8 @@
             <th scope="col">Supprimer</th>
         </tr>
 
+
+       
             {% for data in recettes %}
 
                 <tr>
@@ -50,5 +62,6 @@
             {% endfor %} 
         </table>
     </div>
+
 
 {% endblock %}

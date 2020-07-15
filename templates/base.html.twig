@@ -30,31 +30,41 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto linkcolor">
-                <li class="nav-item active">
+               <img src="../images/ciablog.png"  class= "logo mr-1" alt="" />
+                <li class="nav-item active py-3">
                   <a class="nav-link" href="{{ path('home') }}">Accueil</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item py-3">
                   <a class="nav-link " href="{{ path('about') }}">A propos</a>
                 </li>
+
+               
 
                 <li class="nav-item">
                   <a class="nav-link " href="{{ path('list_category') }}">Recettes</a>
                 </li>
                 
                     
-                    {# <a class="dropdown-item" href="{{ path('blog_category', {'category': cat.category}) }}">Recetttes Orientales</a>  #}
+                   
                                        
 
                 {% if app.user %}
 
-                  <li>
-                    <a class="nav-link" href="{{ path('blog_create') }}">Créer une recette</a>
-                  </li>
+                <li class="py-3">
+                <a class="nav-link" href="{{ path('blog_create') }}">Créer une Récette</a>
+                    
+                </li>
+
+                  
+                
+                  
+
+                 
 
                 {% endif %} 
                 
                 {% if is_granted('ROLE_ADMIN') %}
-                  <li class="nav-item active">
+                  <li class="nav-item active py-3">
                       <a class="nav-link" href="{{ path('admin') }}">BACKOFFICE</a>
                   </li>
               {% endif %}
@@ -121,14 +131,19 @@
       
         
 
-        <footer class="bgnoir text-white text-center py-3 fixed-bottom"> 
+        <footer class="bgnoir text-white text-center py-3 "> 
                 <p class="police">Nous rejoindre</p> 
 
             <div class="container ">
 
            <section class="section-footer">
+
+            
+   
+
+
         
-               <img src="../images/li.png" />
+               <img src="../images/pinterst.png" />
                <img src="../images/oiseau.png" />
                 <img src="../images/snap.png" />
           </section>

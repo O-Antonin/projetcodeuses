@@ -11,9 +11,15 @@
     <div class="row d-flex justify-content-around ">
 
         {% for data in recettes %}
+
+
             
-            <div class="card mb-3 text-center border border-dark rounded-lg animate__animated animate__zoomIn image" style="width: 18rem;">
+                
+
+            
+            <div class="card mb-4 text-center border border-dark rounded-lg animate__animated animate__zoomIn image" style="width: 18rem;">
                 <img src="{{ asset('images/recettesImages/' ~ data.image ) }}" class="card-img-top" alt="{{ data.title }}">
+
                 <div class="card-body">
                     <h3 class="card-title name"> {{ data.title }} </h3> <!-- to dynamically change the title name for each cards -->
                     
