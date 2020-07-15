@@ -332,11 +332,14 @@ color: black!important;
     
 }
 
+<<<<<<< HEAD
 
 .comments {
 
     color:black;
 }
+=======
+>>>>>>> b95b2fa65b501d174257430bca7e485d9c3af2e0
 
 /*******Style contact*********/
 
@@ -352,11 +355,15 @@ color: black!important;
  @media screen and (min-device-width: 501px) and (max-device-width: 800px) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
      
   
 =======
  
 >>>>>>> cb1c5af138f735d9f34e2349a3a27a27471e7380
+=======
+
+>>>>>>> b95b2fa65b501d174257430bca7e485d9c3af2e0
     .category-list{
       direction: rtl;
       display: block;
