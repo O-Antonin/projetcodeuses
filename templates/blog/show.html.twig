@@ -9,8 +9,10 @@
         <div class="col-md-12 card mb-2 text-center p-0 text-dark">
             <img src="{{ asset('images/recettesImages/' ~ recette.image )|replace({"200": "1000/300"}) }}" class="card-img-top" alt="{{ recette.title }}">
 
-            <div class="card-body ">
-                <h5 class="card-title text-center">{{ recette.title }}</h5>
+
+            <div class="card-body">
+                <h5 class="card-title text-center text-dark">{{ recette.title }}</h5>
+
                 <p class="card-text text-center">{{ recette.content|raw }}</p>   
                 <hr>
 
@@ -28,7 +30,8 @@
 
         <div class="col-md-12 bg-light style="formulaire">
 
-            <h2 class="text-center mt-5"> Derniers avis... </h2>
+
+            <h2 class="text-center text-dark mt-5"> Derniers avis... </h2>
 
 
             <section id="commentaire" class="col-md-10 mx-auto"> 
@@ -49,7 +52,9 @@
                   {{ form_row(commentForm.Author, {'label': 'Auteur', 'attr': {'plac
                  eholder': "Votre nom..."}}) }}
                  {{ form_row(commentForm.Content, {'label': 'Votre message', 'attr' : {'placeholder': "Saisir votre message..."}}) }}
-                 <button type="submit" class="btn btn-primary mb- 3">Poster votre commentaire</button>
+
+                 <button type="submit" class="btn btn-secondary mb- 3">Poster votre commentaire</button>
+
                 {{ form_end(commentForm) }}
         
             </section>

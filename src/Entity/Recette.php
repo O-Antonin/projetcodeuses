@@ -117,12 +117,12 @@ class Recette
 
     public function setImageFile(?File $imageFile = null): self
     {
-    $this->imageFile = $imageFile;
+        $this->imageFile = $imageFile;
 
-    if($this->imageFile instanceof UploadedFile){
-    $this->updated_at = new \DateTime('now');
-    }
-    return $this;
+        if($this->imageFile instanceof UploadedFile){
+        $this->updated_at = new \DateTime('now');
+        }
+        return $this;
     }                                       //////// VichUploader commands
 
 

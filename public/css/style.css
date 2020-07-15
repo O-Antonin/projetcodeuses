@@ -57,6 +57,7 @@ html{
 }
 .card-text{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
 }
 .text-black{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -65,7 +66,7 @@ html{
 body{
     /* background:#B9C1C0; */
     /* background:url(https://previews.123rf.com/images/ivandzyuba/ivandzyuba1608/ivandzyuba160800014/61631400-arri%C3%A8re-plan-culinaire-des-ustensiles-de-cuisine.jpg) !important; */
-    background: url(../images/salad.jpg) !important;
+    background: url(../images/salad.jpg);
     background-size: cover;
     background-repeat: no-repeat;   
     
@@ -323,6 +324,7 @@ color: black!important;
 /* .text-center{
     color: white;
     
+
 } */
 .police{
     font-family: fantasy;
@@ -331,41 +333,39 @@ color: black!important;
 }
 
 
+/*******Style contact*********/
+
+.my-bgcolor{
+
+  background-color: black;
+
+}
+
 
 
 /* tablette */
-@media screen and (min-device-width: 501px) and (max-device-width: 800px) {
+ @media screen and (min-device-width: 501px) and (max-device-width: 800px) {
 
-     
-  
+
     .category-list{
       direction: rtl;
       display: block;
       width: min-content;
 
+
+} 
+
     }
     
-}
+
 
 
 /* mobile */
-@media screen and (min-device-width: 200px) and (max-device-width: 500px) {
+/* @media screen and (min-device-width: 200px) and (max-device-width: 500px) { 
 
-.nav-link {
-    padding-left: 370px!important;
-    font-size: 3em;}
 
-.dropdown-item {
 
-    font-size: 3em;  
-    padding-left: 299px!important;
-    background-color:#4f3930;
-} 
 
-.loginresponsive {
-
-    font-size: 2em;
-}
 
 .category-list{
   direction: rtl;
@@ -374,8 +374,13 @@ color: black!important;
 
 }
 
+
 }
 
 
 
+
+.logo{
+    width: 70px;
+}
 
