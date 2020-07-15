@@ -6,20 +6,20 @@
 
 <h1 class="display-4 text-center my-4">Gestion des recettes <br>
   
-    <button type="button" class="btn btn-dark " >
+    <button type="button" class="btn btn-warning btn-md mb-3 font-weight-bold font-italic" >
         
             <a href ="{{ path('admin_new_recette')}}">
-                ajouter
+                Ajouter
             </a>
        
     </button>      
 </h1>
 
 
-    <div class="table-responsive">
+    <div class="container-fluid">
         
-    <table class="table table-bordered table-responsive text-center bg-white effet-table col md-6">
-        <tr class="bg-dark ">
+    <table class="table table-bordered table-responsive text-center text-dark bg-light effet-table">
+        <tr class="bg-dark text-white">
             
             {% for data in colonnes %}
                 {% if data !='id' %}
@@ -34,26 +34,14 @@
             <th scope="col">Supprimer</th>
         </tr>
 
-        {% for data in recettes %}
-
-            <tr>
-                <td>{{ data.title}}</td>
-                <td><img src="{{ data.image }}" alt="{{ data.title }}" style="width: 150px;"></td>
-                <td>{{ data.content|raw }}</td>
-                <td>{{ data.createdAt|date("d/m/Y à H:i:s") }}</td>
-                <td>{{ data.category.title}}</td>
-                <td><a href="{{ path('admin_edit_recette', {'id': data.id }) }}" class="btn btn-dark"><i class="far fa-edit "></i></a></td>
-                <td><a href="{{ path('admin_delete_recette', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt p-3 mb-2 bg-danger text-white"></i></a></td>
-
-            </tr>
-
             {% for data in recettes %}
 
                 <tr>
                     <td>{{ data.title}}</td>
-                    <td><img src="{{ data.image }}" alt="{{ data.title }}" style="width: 150px;"></td>
+                    <td><img src="{{ asset('images/recettesImages/' ~ data.image ) }}" alt="{{ data.title }}" style="width: 150px;"></td>
                     <td>{{ data.content|raw }}</td>
                     <td>{{ data.createdAt|date("d/m/Y à H:i:s") }}</td>
+                    <td>{{ data.updatedAt|date("d/m/Y à H:i:s") }}</td>
                     <td>{{ data.category.title}}</td>
                     <td><a href="{{ path('admin_edit_recette', {'id': data.id }) }}" class="btn btndark"><i class="far fa-edit"></i></a></td>
                     <td><a href="{{ path('admin_delete_recette', {'id': data.id }) }}" class="text-dark"><i class="fas fa-trash-alt"></i></a></td>

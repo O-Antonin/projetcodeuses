@@ -99,8 +99,17 @@
     "fzaninotto/faker": {
         "version": "v1.9.1"
     },
+    "guzzle/guzzle": {
+        "version": "v3.8.1"
+    },
     "jms/metadata": {
         "version": "2.3.0"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.0.4"
+    },
+    "mikemccabe/json-patch-php": {
+        "version": "0.1.0"
     },
     "monolog/monolog": {
         "version": "1.25.4"
@@ -137,6 +146,9 @@
     },
     "psr/log": {
         "version": "1.1.3"
+    },
+    "rackspace/php-opencloud": {
+        "version": "dev-master"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
@@ -434,10 +446,9 @@
     "symfony/stopwatch": {
         "version": "v4.4.10"
     },
-
     "symfony/string": {
         "version": "v5.1.2"
-
+    },
     "symfony/swiftmailer-bundle": {
         "version": "2.5",
         "recipe": {
@@ -451,7 +462,6 @@
             "config/packages/swiftmailer.yaml",
             "config/packages/test/swiftmailer.yaml"
         ]
-
     },
     "symfony/test-pack": {
         "version": "v1.0.6"
@@ -548,6 +558,9 @@
         "files": [
             "./config/packages/vich_uploader.yaml"
         ]
+    },
+    "webimpress/safe-writer": {
+        "version": "2.0.1"
     },
     "webmozart/assert": {
         "version": "1.9.0"

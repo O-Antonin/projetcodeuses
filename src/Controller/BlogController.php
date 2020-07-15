@@ -96,9 +96,15 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog/category", name="list_category")
      */
-    public function listCategory()
+    public function listCategory(CategoryRepository $repo)
     {
-        return $this->render('blog/category.html.twig');
+        $category = $repo->findAll();
+
+        dump($category);
+
+        return $this->render('blog/category.html.twig', [
+            'category' => $category
+        ]);
     }
       
     /**
@@ -158,11 +164,9 @@ class BlogController extends AbstractController
             return $this->redirectToRoute('blog_show', [ 'id' => $recette->getId()
             ]); }
          
-         
 
-
-         return $this->render('blog/show.html.twig', [
-            'recette' => $recette,
+         return $this->render('blog/show.html.twig', [  //Method "Render" has 2 parameters => "'blog/show.html.twig' (=> template Html) & 'Rceette'
+            'recette' => $recette,                      // Called in Line 6 of Show.html.twig
             'commentForm' => $form->createView()
         ]);
      }
@@ -170,23 +174,30 @@ class BlogController extends AbstractController
     
 
     /**
-     * @Route("blog/{category}/categorie", name="blog_category")
+     * @Route("blog/{cat}/categorie", name="blog_category")
      */
-    public function eachCategory(CategoryRepository $repo, $category)
+    public function eachCategory(CategoryRepository $repo, $cat) // Example: $cat = Autre recette
     {
         // $repo = $this->getDoctrine()->getRepository(Recette::class);
-https://github.com/O-Antonin/projetcodeuses/pull/25/conflict?name=templates%252Fbase.html.twig&ancestor_oid=e6483a2ef6d1e6bec8bbd1c420e838145442d8c9&base_oid=528318ff02cc0090370f179d1f55c133d9a17ec6&head_oid=8bff39e64486b68f051f0ca14a4c31e2cc541177
-        $categories = $repo->findOneBy([
-            'title' => $category
+https://github.com/O-Antonin/projetcodeuses/pull/25/conflict?namename=templates%252Fbase.html.twig&ancestor_oid=e6483a2ef6d1e6bec8bbd1c420e838145442d8c9&base_oid=528318ff02cc0090370f179d1f55c133d9a17ec6&head_oid=8bff39e64486b68f051f0ca14a4c31e2cc541177
+
+        $description = $repo->findBy([
+            'title' => $cat
         ]);
 
-        $recettes = $categories->getRecettes();
+        $category = $repo->findOneBy([
+            'title' => $cat
+        ]);
+
+        $recettes = $category->getRecettes();
 
         dump($recettes);
+        dump($description);
+
 
         return $this->render('blog/categoryList.html.twig', [
-            'controller_name' => 'BlogController',
-            'category' => $categories
+            'recettesByCategory' => $recettes,
+            'description' => $description
         ]);
     }
 
@@ -201,13 +212,10 @@ https://github.com/O-Antonin/projetcodeuses/pull/25/conflict?name=templates%252F
         return $this->render('blog/about.html.twig',[
             'title'=> 'Notre blog cuisine'
         ]);
-
-
-    
+   
       
     }
 
-     
 
  
 }

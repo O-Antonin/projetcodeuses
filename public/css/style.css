@@ -1,3 +1,22 @@
+/**** Font Style ****/
+
+@font-face {
+  font-family: 'samarkan_____normal';
+  src: url('../fonts/saman___-webfont.woff2') format('woff2'),
+       url('../fonts/saman___-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/**** Font Style ****/
+
+html{
+  box-sizing: border-box;
+  
+}
+
+
 .my-container{
     min-height: 85vh;
     margin: auto;
@@ -25,8 +44,6 @@
 }
 
 
-   
-
 .card-group{
     margin-bottom: 200px!important;
 }
@@ -51,6 +68,7 @@ body{
     background: url(../images/salad.jpg) !important;
     background-size: cover;
     background-repeat: no-repeat;   
+    
 
 }
 
@@ -101,36 +119,47 @@ color: black!important;
 
 }
 
-/**********Category List Design begins ***********/
+.headerp p{
+    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+
+}
+.namaste{
+  font-family: 'samarkan_____normal', sans-serif;
+  font-weight: bold;
+}
+
+/********** Category List Design begins ***********/
 
 .category-list {
     margin: 0 auto;
     list-style-type: none;
-    width: 960px;
+    width: 1200px;
     text-align: center;
   }
   
   .category-list li {
-    padding: 20px;
     text-decoration: none;
     font-family: Georgia, Times, 'Times New Roman', serif;
     font-style: italic;
-    color: #fff;
-    font-weight: lighter;
-    font-size: 28px;
+    color: #000;
+    font-weight: bold;
+    font-size: 24px;
     line-height: 28px;
     margin: 10px;
-    padding: 20px 60px;
+    padding: 20px 20px;
     border-radius: 20px;
-    float: left;
-    cursor: pointer;
+    cursor: url("../images/ladle1.png"), auto;
     opacity: 0.85;
-    transition: opacity 0.1s ease, padding 0.1s ease;
+    /* transition: opacity 0.1s ease, padding 0.1s ease; */
     }
 
-    .category-list a{
+  .category-list a{
     color: inherit; 
     text-decoration: none;
+    font-weight: 500;
   } 
   
   .category-list li:after {
@@ -144,10 +173,10 @@ color: black!important;
     width: 0;
     opacity: 0;
     white-space: nowrap;
-    transition: width 0.2s ease, opacity 0.1s ease;
+    /* transition: width 0.2s ease, opacity 0.1s ease; */
     /* pill */
     box-sizing: border-box;
-    background-color: rgba(0,0,0,0.1);
+    /* background-color: rgba(0,0,0,0.1); */
     padding: 5px 0 2px;
     border-radius: 4px;  
     line-height: 1;
@@ -168,43 +197,136 @@ color: black!important;
     opacity: 1;
   }
   
-  .category-list .affichertoutes {
+  .category-list li:nth-child(1) {
     background: #F6672E;
   }
-  
-  .category-list .antillaise {
-    background-color: #009BD4;
+  .category-list li:nth-child(2) {
+    background: #4EC9BE;
+  }
+  .category-list li:nth-child(3) {
+    background: #9FC53A;
+  }
+  .category-list li:nth-child(4) {
+    background: #FFB200;
+  }
+  .category-list li:nth-child(5) {
+    background: #8F5A9F;
+  }
+  .category-list li:nth-child(6) {
+    background: #009BD4;
   }
   
-  .category-list .orientale {
-    background-color: #9FC53A;
-  }
   
-  .category-list .indienne {
-    background-color: #FFB200;
+
+  /************ Category List Design Ends **********************/
+
+  /************ Category Image Animation Ends ******************/
+  .hotsmoke{
+    width:110px;
+    height:20px;
+    display:flex;
+    flex-direction:row;
+    margin-bottom:-20px;
+    justify-content:space-evenly;
   }
-  
-  .category-list .chinoise {
-    background-color: #8F5A9F;
+  @keyframes wavy{
+    0%{
+      opacity:0;
+      transform:scaleY(0.1);
+    }
+    30%{
+      opacity:0.9;
+      transform:scaleY(1) translatey(-5px);
+    }
+    90%{
+      opacity:0.1;
+      transform:scaleY(1) translatey(-50px);
+      transform-origin:50% 0%;
+    }
+    100%{
+      opacity:0;
+      transform:scaleY(0.8) translatey(-52px);
+      transform-origin:50% 100%;    
+    }
   }
-  
-  .category-list .autre{
-    background-color: #4EC9BE;
+  .smoke{
+    width:4px;
+    height:12px;
+    border:2px solid rgb(240, 227, 227);
+    border-radius:0px 50% 50% 0px;
+    border-left:none;
+    animation:wavy 5s infinite ease-in-out;
+    transform-origin:50% 100%;
+    opacity:0;
+  }
+  .smoke:before{
+    content:"";
+    width:4px;
+    height:12px;
+    border:2px solid rgb(240, 227, 227);
+    border-radius: 50% 0px 0px 50%;
+    border-right:none;
+    margin-top:-15px;
+    position:absolute;
+  }
+  .smoke:nth-child(1){
+    animation-delay:0.3s;
+  }
+  .smoke:nth-child(2){
+    animation-delay:0.4s;
+  }
+  .smoke:nth-child(3){
+    animation-delay:0.2s;
+  }
+  .smoke:nth-child(4){
+    animation-delay:0.15s;
   }
 
-  /**********Category List Design Ends ***********/
+/************** Category Image Animation Ends *******************/
+
+/**************Recipe Card Hover Setting Begins *****************/
+.image {
+  
+  overflow:hidden;
+  position:relative;
+
+}
+.image img{
+  width:100%;
+  transition: all 1s ease;
+  /* margin-top:-70px; */
+}
+.image:hover img{
+  transform: scale(1.2) ;
+  -webkit-transform: scale(1.2) ; /* Safari and Chrome */
+}
+
+.name {
+  background:#ecd346;
+  opacity: 0.85;
+  filter: alpha(opacity=85); 
+  zoom: 1; 
+  overflow:hidden;
+  border-radius: 20px;
+  bottom:0;
+  line-height: 50px; 
+  text-shadow: 1px 1px 2px rgb(122, 235, 223);
+  border-bottom:1px dotted #b7f7f0;
+}
+
+/***************** Recipe Card Hover Setting Ends ****************/
 
 .bouttonmenu {
  font-size: 2.8em;
 
 }
-.text-center{
+/* .text-center{
     color: white;
     
-}
+} */
 .police{
     font-family: fantasy;
-    color
+    
     
 }
 .col-md-12{
@@ -220,7 +342,13 @@ color: black!important;
     bgnoir {
         padding: 30px!important;
     }
+    .category-list{
+      direction: rtl;
+      display: block;
+      width: min-content;
 
+    }
+    
 }
 
 
@@ -241,6 +369,13 @@ color: black!important;
 .loginresponsive {
 
     font-size: 2em;
+}
+
+.category-list{
+  direction: rtl;
+  display: block;
+  width: min-content;
+
 }
 
 }
