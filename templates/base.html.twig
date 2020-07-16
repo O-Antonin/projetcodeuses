@@ -24,137 +24,90 @@
   
   
 
-        <nav class="navbar navbar-expand-lg navbar-light bgnoir">
+      <nav class="navbar navbar-expand-lg navbar-light bgnoir">
 
           <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded police-menu bouttonmenu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto linkcolor">
-               <img src="../images/ciablog.png"  class= "logo mr-1" alt="" />
-                <li class="nav-item active py-3">
-                  <a class="nav-link" href="{{ path('home') }}">Accueil</a>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <img src="../images/ciablog.png"  class= "logo mr-1" alt="" />
+            <ul class="navbar-nav mr-auto linkcolor navfont">
+               
+                <li class="nav-item active my-auto">
+                  <a class="nav-link " href="{{ path('home') }}">Accueil</a>
                 </li>
-                <li class="nav-item py-3">
+                <li class="nav-item my-auto">
                   <a class="nav-link " href="{{ path('about') }}">A propos</a>
                 </li>
 
-               
-
-                <li class="nav-item">
+                <li class="nav-item my-auto">
                   <a class="nav-link " href="{{ path('list_category') }}">Recettes</a>
                 </li>
-                
-                    
-                   
+
+                <li class="nav-item my-auto">
+                <a class="nav-link " href="{{ path('blog_contact') }}">Contact</a>
+                </li> 
                                        
 
                 {% if app.user %}
 
-                <li class="py-3">
-                <a class="nav-link" href="{{ path('blog_create') }}">Créer une Récette</a>
-                    
+                <li class="my-auto">
+                <a class="nav-link" href="{{ path('blog_create') }}">Créer une Récette</a>                    
                 </li>
 
-                  
-                
-                  
-
-                 
 
                 {% endif %} 
                 
                 {% if is_granted('ROLE_ADMIN') %}
-                  <li class="nav-item active py-3">
+                  <li class="nav-item active my-auto">
                       <a class="nav-link" href="{{ path('admin') }}">BACKOFFICE</a>
                   </li>
-              {% endif %}
+                {% endif %}
 
-              </ul>
-
-      
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold  text-white rounded police-menu bouttonmenu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto linkcolor">
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ path('home') }}">Accueil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="{{ path('about') }}">A propos</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="{{ path('list_category') }}">Catégories</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="{{ path('blog_contact') }}">Contact</a>
-            </li> 
-
-            {% if app.user %}
-
-              <li>
-                <a class="nav-link" href="{{ path('blog_create') }}">Créer une recette</a>
-              </li>
-
-            {% endif %} 
-            
-            {% if is_granted('ROLE_ADMIN') %}
-              <li class="nav-item active">
-                  <a class="nav-link" href="{{ path('admin') }}">BACKOFFICE</a>
-              </li>
-            {% endif %}
-
-          </ul>
+            </ul>
   
-          {% if not app.user %}
+                {% if not app.user %}
 
-            <button class="btn btn-light my-2 my-sm-0  mr-2 loginresponsive" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
+                <button class="btn btn-light my-2 my-sm-0  mr-2 loginresponsive" type="submit"> <a href="{{ path('security_registration') }}">Creer votre compte</a> </button>
 
-            <button class="btn btn-light my-2 my-sm-0 mr-2 loginresponsive" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
+                <button class="btn btn-light my-2 my-sm-0 mr-2 loginresponsive" type="submit">  <a href="{{ path('security_login')}}">Identifiez-vous</a></button>
 
-            {% else %}
+                {% else %}
       
 
-              <button class="btn btn-light my-2 my-sm-0 " type="submit">  <a href="{{ path('security_logout')}}">Déconnexion</a></button>
+                <button class="btn btn-light my-2 my-sm-0 " type="submit">  <a href="{{ path('security_logout')}}">Déconnexion</a></button>
 
 
-          {% endif %}     
+                {% endif %}     
         </div>
-    </nav>
+      </nav>
   
-    <section class="container-fluid my-container"> 
-      {% block body %}      
+      <section class="container-fluid my-container"> 
+        {% block body %}      
 
 
-      {% endblock %}
-    </section>
+        {% endblock %}
+      </section>
       
-    <footer class="bgnoir text-white text-center py-3 "> 
-      <p class="police">Nous rejoindre</p> 
-      <div class="container ">
+      <footer class="bgnoir text-white text-center my-auto "> 
+        <p class="police">Nous rejoindre</p> 
+        <div class="container ">
 
-           <section class="section-footer">
+            <section class="section-footer">  
+
+                <a href="https://www.pinterest.fr/"><img src="../images/pinterst.png" /></a>
+                <a href="https://twitter.com/home"><img src="../images/oiseau.png" /></a>
+                <a href="https://www.snapchat.com/"><img src="../images/snap.png" /></a>
+            </section>
 
             
-   
+          <p>
+          4 rue de la gastronomie <br>
+          75000 Paris<br>
+          &copy;  CIAO 2020
+          </p>
 
-
-        
-               <img src="../images/pinterst.png" />
-               <img src="../images/oiseau.png" />
-                <img src="../images/snap.png" />
-          </section>
-
-          
-        <p>
-        4 rue de la gastronomie <br>
-        75000 Paris<br>
-        &copy;  CIAO 2020
-        </p>
-
-      </div>
-    </footer>
+        </div>
+      </footer>
 
     {% block javascripts %}
         
