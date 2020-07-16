@@ -99,10 +99,21 @@ color: black!important;
 
 }
 
-.effet-table {
+/* .effet-table {
  border-radius: 4px;
  box-shadow:  3px 2px 5px olive;
 
+} */
+
+.navfont li{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}
+
+.navfont :hover{
+  background: #ffa931;
+  border-radius: 20px;
+  color: #000;
 }
 
 .style-formulaire{
@@ -139,6 +150,7 @@ color: black!important;
     list-style-type: none;
     width: 1200px;
     text-align: center;
+    
   }
   
   .category-list li {
@@ -253,7 +265,7 @@ color: black!important;
   .smoke{
     width:4px;
     height:12px;
-    border:2px solid rgb(240, 227, 227);
+    border:2px solid rgb(255, 255, 255);
     border-radius:0px 50% 50% 0px;
     border-left:none;
     animation:wavy 5s infinite ease-in-out;
@@ -264,7 +276,7 @@ color: black!important;
     content:"";
     width:4px;
     height:12px;
-    border:2px solid rgb(240, 227, 227);
+    border:2px solid rgb(255, 255, 255);
     border-radius: 50% 0px 0px 50%;
     border-right:none;
     margin-top:-15px;
@@ -333,6 +345,11 @@ color: black!important;
 }
 
 
+.comments {
+
+    color:black !important;
+}
+
 /*******Style contact*********/
 
 .my-bgcolor{
@@ -346,34 +363,36 @@ color: black!important;
 /* tablette */
  @media screen and (min-device-width: 501px) and (max-device-width: 800px) {
 
-
     .category-list{
       direction: rtl;
       display: block;
       width: min-content;
+}   
 
-
-} 
+    .logo{
+      width: fit-content;
+    }
 
     }
-    
-
 
 
 /* mobile */
-/* @media screen and (min-device-width: 200px) and (max-device-width: 500px) { 
+ @media screen and (min-device-width: 200px) and (max-device-width: 500px) { 
 
 
 
 
 
-.category-list{
-  direction: rtl;
-  display: block;
-  width: min-content;
+  .category-list{
+      direction: rtl;
+      display: block;
+      width: min-content;
 
-}
-
+  }
+  
+  .logo{
+    width: fit-content;
+  }
 
 }
 

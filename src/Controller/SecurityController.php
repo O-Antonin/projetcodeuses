@@ -43,7 +43,7 @@ class SecurityController extends AbstractController
             $hash = $encoder->encodePassword($users, $users->getPassword());//On lui demande d'encoder le mdp
 
             $users->setPassword($hash); //Appel du setteur du mot de passe , on lui demande de le hacher
-
+            
             $manager->persist($users); // On fait persister dans le temps l'utilisateur
             $manager->flush();// On lance la requête d'insertion
 
